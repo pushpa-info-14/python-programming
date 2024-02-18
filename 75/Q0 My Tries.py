@@ -1,19 +1,14 @@
 from typing import List
 
 
-def maxArea(height: List[int]) -> int:
-    l, r = 0, len(height) - 1
-    maxVolume = 0
+def missingNumber(nums: List[int]) -> int:
+    total = 0
+    expectedTotal = 0
+    for i in range(len(nums)):
+        total += nums[i]
+        expectedTotal += i + 1
 
-    while l < r:
-        tempVolume = (r - l) * min(height[l], height[r])
-        maxVolume = max(maxVolume, tempVolume)
-
-        if height[l] >= height[r]:
-            r -= 1
-        else:
-            l += 1
-    return maxVolume
+    return expectedTotal - total
 
 
-print(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+print(missingNumber([9,6,4,2,3,5,7,0,1]))
