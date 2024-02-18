@@ -13,6 +13,10 @@ Example 2:
 Example 3:
     Input: nums = [9,6,4,2,3,5,7,0,1]
     Output: 8
+
+
+XOR solution
+[0, 1, 2, 3] XOR [0,1,3] => 2
 """
 from typing import List
 
@@ -37,9 +41,21 @@ def missingNumber2(nums: List[int]) -> int:
     return expectedTotal - total
 
 
+def missingNumber3(nums: List[int]) -> int:
+    res = len(nums)
+
+    for i in range(len(nums)):
+        res += (i - nums[i])
+
+    return res
+
+
 print(missing_number([3, 0, 1]))
 print(missing_number([0, 1]))
 print(missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1]))
 print(missingNumber2([3, 0, 1]))
 print(missingNumber2([0, 1]))
 print(missingNumber2([9, 6, 4, 2, 3, 5, 7, 0, 1]))
+print(missingNumber3([3, 0, 1]))
+print(missingNumber3([0, 1]))
+print(missingNumber3([9, 6, 4, 2, 3, 5, 7, 0, 1]))
