@@ -24,7 +24,25 @@ def maximum_product_subarray(nums):
     return max_product
 
 
+def maximum_product_subarray2(nums):
+    max_product = nums[0]
+    current_min, current_max = max_product, max_product
+
+    for num in nums[1:]:
+        if num < 0:
+            current_min, current_max = current_max, current_min
+
+        current_max = max(num, current_max * num)
+        current_min = min(num, current_min * num)
+
+        max_product = max(max_product, current_max)
+    return max_product
+
+
 print(maximum_product_subarray([2, 3, -2, 4]))
 print(maximum_product_subarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
 # T(n) = O(n)
 # S(n) = O(1)
+
+print(maximum_product_subarray2([2, 3, -2, 4]))
+print(maximum_product_subarray2([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
