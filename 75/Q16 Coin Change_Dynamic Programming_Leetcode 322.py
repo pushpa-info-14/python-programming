@@ -19,6 +19,22 @@ Example 2:
 Example 3:
     Input: coins = [1], amount = 0
     Output: 0
+
+DP-Bottom-Up
+
+[1, 3, 4, 5] amount = 7
+dp[0] = 0
+dp[1] = 1
+dp[2] = 2
+dp[3] = 1
+dp[4] = 1
+dp[5] = 1
+dp[6] = 2
+
+coin 1 --> dp[7] = 1 + dp[6] = 1 + 2 = 3
+coin 3 --> dp[7] = 1 + dp[4] = 1 + 1 = 2
+coin 4 --> dp[7] = 1 + dp[3] = 1 + 1 = 2
+coin 5 --> dp[7] = 1 + dp[2] = 1 + 2 = 3
 """
 from typing import List
 
