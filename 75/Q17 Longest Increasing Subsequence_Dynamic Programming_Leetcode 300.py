@@ -16,6 +16,18 @@ Example 2:
 Example 3:
     Input: nums = [7,7,7,7,7,7,7]
     Output: 1
+
+
+Dynamic Programming
+
+[1, 2, 4, 3]
+
+LIS[3] = 1
+LIS[2] = max(1) = 1 // 4 > 3
+LIS[1] = max(1, 1 + LIS[2], 1 + LIS[3]) = max(1, 2, 2) = 2
+LIS[0] = max(1,1 + LIS[1], 1 + LIS[2], 1 + LIS[3]) = max(1, 3, 2, 2) = 3
+
+O(n^2)
 """
 from typing import List
 
