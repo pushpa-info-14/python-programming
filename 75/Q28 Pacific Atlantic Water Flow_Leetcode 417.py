@@ -42,13 +42,11 @@ from typing import List
 
 
 def pacific_atlantic(heights: List[List[int]]):
-    rows, columns = len(heights), len(heights)
+    rows, columns = len(heights), len(heights[0])
     pacific, atlantic = set(), set()
 
     def dfs(r, c, visit, prev_height):
-        if ((r, c) in visit or
-                r < 0 or c < 0 or r == rows or c == columns or
-                heights[r][c] < prev_height):
+        if (r, c) in visit or r < 0 or c < 0 or r == rows or c == columns or heights[r][c] < prev_height:
             return
         visit.add((r, c))
         dfs(r + 1, c, visit, heights[r][c])
@@ -72,5 +70,6 @@ def pacific_atlantic(heights: List[List[int]]):
     return res
 
 
-print(pacific_atlantic([[1, 2, 2, 3, 5], [3, 2, 3, 4, 4], [2, 4, 5, 3, 1], [6, 7, 1, 4, 5], [5, 1, 1, 2, 4]]))
-print(pacific_atlantic([[1]]))
+# print(pacific_atlantic([[1, 2, 2, 3, 5], [3, 2, 3, 4, 4], [2, 4, 5, 3, 1], [6, 7, 1, 4, 5], [5, 1, 1, 2, 4]]))
+# print(pacific_atlantic([[1]]))
+print(pacific_atlantic([[1, 1], [1, 1], [1, 1]]))
