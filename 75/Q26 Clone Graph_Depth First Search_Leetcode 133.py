@@ -86,8 +86,8 @@ def get_graph_adjacency_list(node: Node):
                 adjacency_dict[node.val].append(neighbor.val)
                 dfs(neighbor)
     dfs(node)
-    t = len(adjacency_dict.keys())
-    for i in range(1, t+1):
+
+    for i in adjacency_dict.keys():
         adjacency_list.append(adjacency_dict[i])
     return adjacency_list
 
@@ -112,4 +112,3 @@ adj_list = [[2, 4], [1, 3], [2, 4], [1, 3]]
 graph = create_graph(adj_list)
 print(get_graph_adjacency_list(graph))
 print(get_graph_adjacency_list(clone_graph(graph)))
-

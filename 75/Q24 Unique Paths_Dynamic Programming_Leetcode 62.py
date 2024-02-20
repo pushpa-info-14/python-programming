@@ -33,5 +33,18 @@ def unique_paths(m: int, n: int):
     return row[0]
 
 
+def unique_paths2(m: int, n: int) -> int:
+    dp = [[1 for _ in range(n)] for _ in range(m)]
+
+    for i in range(n - 2, -1, -1):
+        for j in range(m - 2, -1, -1):
+            dp[j][i] = dp[j + 1][i] + dp[j][i + 1]
+
+    return dp[0][0]
+
+
 print(unique_paths(3, 7))
 print(unique_paths(3, 2))
+
+print(unique_paths2(3, 7))
+print(unique_paths2(3, 2))

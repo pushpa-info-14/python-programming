@@ -21,9 +21,9 @@ Example 2:
 from typing import List
 
 
-def can_finish(num_courses: int, prerequisites: List[list[int]]):
+def can_finish(numCourses: int, prerequisites: List[list[int]]):
     # map each course to prerequisites list
-    pre_map = {i:[] for i in range(num_courses)}
+    pre_map = {i: [] for i in range(numCourses)}
     for crs, pre in prerequisites:
         pre_map[crs].append(pre)
 
@@ -44,7 +44,7 @@ def can_finish(num_courses: int, prerequisites: List[list[int]]):
         pre_map[crs] = []
         return True
 
-    for crs in range(num_courses):
+    for crs in range(numCourses):
         if not dfs(crs):
             return False
     return True
@@ -59,4 +59,3 @@ prerequisites1 = [[0, 1], [3, 0], [1, 3], [2, 1], [4, 1], [4, 2], [5, 3], [5, 4]
 prerequisites2 = [[3, 0], [1, 3], [2, 1], [4, 1], [4, 2], [5, 3], [5, 4]]
 print(can_finish(n, prerequisites1))
 print(can_finish(n, prerequisites2))
-
