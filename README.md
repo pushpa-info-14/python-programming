@@ -1,1 +1,1 @@
-# Learn-data-structures-and-algorithms-in-python
+# It's all about python

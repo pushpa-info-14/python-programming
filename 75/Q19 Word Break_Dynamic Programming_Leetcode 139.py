@@ -18,6 +18,19 @@ Example 2:
 Example 3:
     Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
     Output: false
+
+
+s = "neetcode" wordDict = ["neet", "leet", "code"]
+
+dp[8] = True
+dp[7] = False
+dp[6] = False
+dp[5] = False
+dp[4] = dp[4 + 4] = dp[8] = True
+dp[3] = False
+dp[2] = False
+dp[1] = False
+dp[0] = dp[0 + 4] = dp[4] = True
 """
 
 
@@ -27,7 +40,7 @@ def word_break(s, word_dict):
 
     for i in range(len(s) - 1, -1, -1):
         for w in word_dict:
-            if (i + len(w)) <= len(s) and s[i : i + len(w)] == w:
+            if (i + len(w)) <= len(s) and s[i: i + len(w)] == w:
                 dp[i] = dp[i + len(w)]
             if dp[i]:
                 break

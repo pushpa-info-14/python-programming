@@ -19,6 +19,23 @@ def hamming_weight1(n):
 def hamming_weight2(n):
     res = 0
     while n:
+        res += n & 1
+        n = n >> 1
+    return res
+
+
+'''
+10000001 - n
+10000000 - n - 1
+10000000 - n & (n - 1) res += 1
+01111111 - n - 1
+00000000 - n & (n - 1) res += 1
+'''
+
+
+def hamming_weight3(n):
+    res = 0
+    while n:
         n &= (n - 1)
         res += 1
     return res
@@ -28,3 +45,5 @@ print(hamming_weight1(3))
 print(hamming_weight1(15))
 print(hamming_weight2(3))
 print(hamming_weight2(15))
+print(hamming_weight3(3))
+print(hamming_weight3(15))

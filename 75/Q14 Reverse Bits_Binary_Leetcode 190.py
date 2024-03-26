@@ -21,6 +21,7 @@ Example 2:
     Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293,
     so return 3221225471 which its binary representation is 10111111111111111111111111111111.
 """
+import time
 
 
 def reverse_bits(n):
@@ -32,7 +33,18 @@ def reverse_bits(n):
     return res
 
 
+def reverse_bits2(n):
+    res = ''
+
+    for i in range(32):
+        bit = (n >> i) & 1
+        res += str(bit)
+    return int(res, 2)
+
+
 print(reverse_bits(43261596))
 print(reverse_bits(4294967293))
+print(reverse_bits2(43261596))
+print(reverse_bits2(4294967293))
 
 
