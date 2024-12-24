@@ -16,3 +16,12 @@ if __name__ == '__main__':
     print(valid_palindrome("race a car"))
     print(valid_palindrome(" "))
     print(valid_palindrome("0P"))
+
+a = 10
+
+def F():
+    a = 20
+    print(a)
+
+F()
+print(a)
