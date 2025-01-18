@@ -6,20 +6,20 @@ class Solution:
     def minimumObstacles(self, grid: List[List[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
-        directions = [[0,1],[0,-1],[1,0],[-1,0]]
-        q = deque([(0,0,0)]) # (obstacles, r, c)
+        directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        q = deque([(0, 0, 0)])  # (obstacles, r, c)
         visited = {(0, 0)}
 
         while q:
             obstacles, r, c = q.popleft()
 
-            if(r,c) == (m-1,n-1):
-                return  obstacles
+            if (r, c) == (m - 1, n - 1):
+                return obstacles
             for i in range(4):
                 newR = r + directions[i][0]
                 newC = c + directions[i][1]
 
-                if (newR, newC) in visited or newR <0 or newC < 0 or newR == m or newC == n:
+                if (newR, newC) in visited or newR < 0 or newC < 0 or newR == m or newC == n:
                     continue
                 if grid[newR][newC]:
                     q.append((obstacles + 1, newR, newC))
@@ -27,6 +27,7 @@ class Solution:
                     q.appendleft((obstacles, newR, newC))
                 visited.add((newR, newC))
 
+
 solution = Solution()
-print(solution.minimumObstacles([[0,1,1],[1,1,0],[1,1,0]]))
-print(solution.minimumObstacles([[0,1,0,0,0],[0,1,0,1,0],[0,0,0,1,0]]))
+print(solution.minimumObstacles([[0, 1, 1], [1, 1, 0], [1, 1, 0]]))
+print(solution.minimumObstacles([[0, 1, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 1, 0]]))
