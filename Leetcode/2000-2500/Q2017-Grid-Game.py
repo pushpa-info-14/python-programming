@@ -19,7 +19,8 @@ class Solution:
             top_sum -= grid[0][i]
             if i > 0:
                 bottom_sum += grid[1][i - 1]
-            min_sum = min(min_sum, max(top_sum, bottom_sum))
+            second_robot = max(top_sum, bottom_sum)
+            min_sum = min(min_sum, second_robot)
         return min_sum
 
 
