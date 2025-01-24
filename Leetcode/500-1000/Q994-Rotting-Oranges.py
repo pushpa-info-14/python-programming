@@ -10,20 +10,17 @@ class Solution:
         directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
         q = deque()
 
-        good_count = 0
+        fresh_count = 0
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 2:
                     q.append((i, j))
                     visited.add((i, j))
                 elif grid[i][j] == 1:
-                    good_count += 1
-
-        if len(q) == 0 and good_count == 0:
-            return 0
+                    fresh_count += 1
 
         t = 0
-        while q:
+        while q and fresh_count > 0:
             q_size = len(q)
             for _ in range(q_size):
                 x, y = q.popleft()
@@ -35,15 +32,12 @@ class Solution:
                         continue
                     if grid[new_x][new_y] != 0:
                         grid[new_x][new_y] = 2
+                        fresh_count -= 1
                         q.append((new_x, new_y))
                         visited.add((new_x, new_y))
             t += 1
 
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 1:
-                    return -1
-        return t - 1
+        return t if fresh_count == 0 else -1
 
 
 s = Solution()
