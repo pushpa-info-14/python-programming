@@ -6,22 +6,16 @@ class Solution:
     def findMaxFish(self, grid: List[List[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
-        directions = [[0,1],[0,-1],[1,0],[-1,0]]
-        visited = set()
+        directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        visited = [[False] * n for _ in range(m)]
         q = deque()
-
-        # Mark all land cells as visited
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 0:
-                    visited.add((i, j))
 
         max_fish = 0
         for r in range(m):
             for c in range(n):
                 if grid[r][c] > 0:
                     q.append((grid[r][c], r, c))
-                    visited.add((r, c))
+                    visited[r][c] = True
 
                 curr_fish = 0
                 while q:
@@ -33,14 +27,15 @@ class Solution:
                         newX = x + directions[i][0]
                         newY = y + directions[i][1]
 
-                        if newX < 0 or newX == m or newY < 0 or newY == n or (newX, newY) in visited:
+                        if newX < 0 or newX == m or newY < 0 or newY == n or grid[newX][newY] == 0 or visited[newX][
+                            newY]:
                             continue
                         q.append((grid[newX][newY], newX, newY))
-                        visited.add((newX, newY))
+                        visited[newX][newY] = True
         return max_fish
 
 
 s = Solution()
-print(s.findMaxFish([[0,2,1,0],[4,0,0,3],[1,0,0,4],[0,3,2,0]]))
-print(s.findMaxFish([[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1]]))
-print(s.findMaxFish([[6,1,10]]))
+print(s.findMaxFish([[0, 2, 1, 0], [4, 0, 0, 3], [1, 0, 0, 4], [0, 3, 2, 0]]))
+print(s.findMaxFish([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 1]]))
+print(s.findMaxFish([[6, 1, 10]]))
