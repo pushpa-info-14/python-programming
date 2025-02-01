@@ -14,7 +14,7 @@ class Solution:
 
         while i <= r:
             if nums[i] == 0:
-                swap(l,i)
+                swap(l, i)
                 l += 1
             elif nums[i] == 2:
                 swap(i, r)

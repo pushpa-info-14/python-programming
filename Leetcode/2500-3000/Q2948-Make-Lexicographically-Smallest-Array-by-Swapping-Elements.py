@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List
 
+
 # 1. Don't need to worry about digits for lexicographically
 # 2. Greedy?
 # 3. Custom sorting?
@@ -21,8 +22,8 @@ from typing import List
 class Solution:
     def lexicographicallySmallestArray(self, nums: List[int], limit: int) -> List[int]:
 
-        groups = [] # list of queues
-        num_to_group = {} # nums[i] -> groups index
+        groups = []  # list of queues
+        num_to_group = {}  # nums[i] -> groups index
 
         for num in sorted(nums):
             if not groups or abs(num - groups[-1][-1]) > limit:
@@ -36,7 +37,8 @@ class Solution:
             res.append(groups[j].popleft())
         return res
 
+
 s = Solution()
-print(s.lexicographicallySmallestArray([1,5,3,9,8], 2))
-print(s.lexicographicallySmallestArray([1,7,6,18,2,1], 3))
-print(s.lexicographicallySmallestArray([1,7,28,19,10],3))
+print(s.lexicographicallySmallestArray([1, 5, 3, 9, 8], 2))
+print(s.lexicographicallySmallestArray([1, 7, 6, 18, 2, 1], 3))
+print(s.lexicographicallySmallestArray([1, 7, 28, 19, 10], 3))

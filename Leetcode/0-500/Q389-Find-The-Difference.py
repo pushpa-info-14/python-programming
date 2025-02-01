@@ -11,11 +11,12 @@ class Solution:
         return ""
 
     def findTheDifference2(self, s: str, t: str) -> str:
-        s+= t
+        s += t
         res = 0
         for i in s:
             res ^= ord(i)
         return chr(res)
+
 
 s = Solution()
 print(s.findTheDifference("abcd", "abcde"))

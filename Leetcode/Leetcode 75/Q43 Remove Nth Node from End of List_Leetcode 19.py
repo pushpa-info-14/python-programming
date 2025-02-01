@@ -13,7 +13,6 @@ Example 3:
     Input: head = [1,2], n = 1
     Output: [1]
 """
-from typing import List, Optional
 
 
 class ListNode:
@@ -38,4 +37,3 @@ def remove_nth_from_end(head: ListNode, n: int):
     # delete
     left.next = left.next.next
     return dummy.next
-

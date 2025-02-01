@@ -85,6 +85,7 @@ def get_graph_adjacency_list(node: Node):
             for neighbor in node.neighbors:
                 adjacency_dict[node.val].append(neighbor.val)
                 dfs(neighbor)
+
     dfs(node)
 
     for i in adjacency_dict.keys():

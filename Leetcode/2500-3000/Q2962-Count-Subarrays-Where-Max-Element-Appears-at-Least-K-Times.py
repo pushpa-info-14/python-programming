@@ -22,6 +22,7 @@ class Solution:
             res += l
         return res
 
+
 s = Solution()
-print(s.countSubarrays([1,3,2,3,3],2))
-print(s.countSubarrays([1,4,2,1],3))
+print(s.countSubarrays([1, 3, 2, 3, 3], 2))
+print(s.countSubarrays([1, 4, 2, 1], 3))

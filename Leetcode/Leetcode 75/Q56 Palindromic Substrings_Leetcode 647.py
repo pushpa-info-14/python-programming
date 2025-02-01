@@ -36,4 +36,3 @@ def count_substrings(s: str) -> int:
 
 print(count_substrings("abc"))
 print(count_substrings("aaa"))
-        

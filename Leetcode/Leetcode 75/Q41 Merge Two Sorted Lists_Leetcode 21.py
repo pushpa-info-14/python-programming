@@ -17,7 +17,7 @@ Example 3:
     Input: list1 = [], list2 = [0]
     Output: [0]
 """
-from typing import List, Optional
+from typing import Optional
 
 
 class ListNode:
@@ -43,4 +43,3 @@ def merge_list(list1: Optional[ListNode], list2: Optional[ListNode]):
     if list2:
         tail.next = list2
     return dummy.next
-

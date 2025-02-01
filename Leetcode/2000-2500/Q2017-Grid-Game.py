@@ -26,4 +26,4 @@ class Solution:
 
 s = Solution()
 print(s.gridGame([[2, 5, 4], [1, 5, 1]]))
-print(s.gridGame([[3,3,1],[8,5,2]]))
+print(s.gridGame([[3, 3, 1], [8, 5, 2]]))

@@ -29,5 +29,5 @@ class Solution:
 
 
 solution = Solution()
-print(solution.minimumObstacles([[0, 1, 1], [1, 1, 0], [1, 1, 0]])) # 2
-print(solution.minimumObstacles([[0, 1, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 1, 0]])) # 0
+print(solution.minimumObstacles([[0, 1, 1], [1, 1, 0], [1, 1, 0]]))  # 2
+print(solution.minimumObstacles([[0, 1, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 1, 0]]))  # 0

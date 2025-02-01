@@ -9,13 +9,13 @@ class Solution(object):
         result2 = [c for c in n]
 
         for i in range(int(len(n) / 2)):
-            if n[i] != n[-i-1]:
-                if n[i] > n[-i-1]:
-                    result1[i] = n[-i-1]
-                    result2[-i-1] = n[i]
+            if n[i] != n[-i - 1]:
+                if n[i] > n[-i - 1]:
+                    result1[i] = n[-i - 1]
+                    result2[-i - 1] = n[i]
                 else:
-                    result1[-i-1] = n[i]
-                    result2[i] = n[-i-1]
+                    result1[-i - 1] = n[i]
+                    result2[i] = n[-i - 1]
 
         dif1 = abs(int(n) - int("".join(result1)))
         dif2 = abs(int(n) - int("".join(result2)))

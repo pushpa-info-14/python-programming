@@ -15,7 +15,6 @@ Example 2:
     Input: head = [1,2,3,4,5]
     Output: [1,5,2,4,3]
 """
-from typing import List, Optional
 
 
 class ListNode:
@@ -47,4 +46,3 @@ def reorder_list(head: ListNode):
         first.next = second
         second.next = tmp1
         first, second = tmp1, tmp2
-

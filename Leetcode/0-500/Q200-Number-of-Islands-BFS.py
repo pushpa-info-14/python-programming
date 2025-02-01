@@ -12,7 +12,7 @@ class Solution:
         q = deque()
         island_count = 0
 
-        def bfs(r,c):
+        def bfs(r, c):
             q.append([r, c])
             visited[r][c] = True
 
@@ -32,7 +32,7 @@ class Solution:
         for r in range(m):
             for c in range(n):
                 if grid[r][c] == "1" and not visited[r][c]:
-                    bfs(r,c)
+                    bfs(r, c)
                     island_count += 1
 
         return island_count

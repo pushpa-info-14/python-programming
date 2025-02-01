@@ -35,5 +35,5 @@ class Solution:
 # log(min(m,n))
 s = Solution()
 print(s.findMedianSortedArrays([1, 3], [2]))
-print(s.findMedianSortedArrays([1, 2], [3,4]))
+print(s.findMedianSortedArrays([1, 2], [3, 4]))
 print(s.findMedianSortedArrays([], [1]))

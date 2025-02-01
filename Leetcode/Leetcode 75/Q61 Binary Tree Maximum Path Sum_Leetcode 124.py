@@ -7,7 +7,7 @@ The path sum of a path is the sum of the node's values in the path.
 
 Given the root of a binary tree, return the maximum path sum of any non-empty path.
 """
-from typing import Optional, List
+from typing import Optional
 
 
 class TreeNode:
@@ -61,4 +61,3 @@ print(max_path_sum_my(root5))
 print(max_path_sum_my(root6))
 print(max_path_sum_my(root7))
 print(max_path_sum_my(root8))
-

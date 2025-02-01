@@ -9,7 +9,7 @@ class Solution:
             bit_count = 0
             n = i
             while n:
-                n= n & (n - 1)
+                n = n & (n - 1)
                 bit_count += 1
             if bit_count != turnedOn:
                 continue
@@ -23,6 +23,7 @@ class Solution:
                     t = str(h) + ":" + str(m)
                 res.append(t)
         return res
+
 
 s = Solution()
 print(s.readBinaryWatch(1))

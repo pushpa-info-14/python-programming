@@ -54,5 +54,3 @@ def alien_order(words: List[str]):
 
 
 print(alien_order(["wrt", "wrf", "er", "ett", "rftt"]))
-
-

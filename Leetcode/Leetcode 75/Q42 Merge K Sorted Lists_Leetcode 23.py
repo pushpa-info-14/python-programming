@@ -62,4 +62,3 @@ def merge_k_lists(lists: List[Optional[ListNode]]):
             merged_lists.append(merge_list(l1, l2))
         lists = merged_lists
     return lists[0]
-

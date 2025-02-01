@@ -10,9 +10,10 @@ class Solution:
             res += n % 10
             n = n // 10
 
-        if res > 2**31 - 1:
+        if res > 2 ** 31 - 1:
             return 0
         return res if x > 0 else -res
+
 
 s = Solution()
 print(s.reverse(123))

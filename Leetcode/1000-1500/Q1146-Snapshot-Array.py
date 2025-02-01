@@ -1,7 +1,7 @@
 class SnapshotArray:
 
     def __init__(self, length: int):
-        self.snapshot_array = [[[0,0]] for _ in range(length)]
+        self.snapshot_array = [[[0, 0]] for _ in range(length)]
         self.snap_id = 0
 
     def set(self, index: int, val: int) -> None:
@@ -51,5 +51,5 @@ obj = SnapshotArray(1)
 obj.set(0, 4)
 obj.set(0, 16)
 obj.set(0, 13)
-obj.snap() # 0
+obj.snap()  # 0
 print(obj.get(0, 0))

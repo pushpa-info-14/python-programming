@@ -21,8 +21,8 @@ class Solution:
         res = 0
         i = 0
         while i < n:
-            if i + 1 < n and s[i:i+2] in dist:
-                res += dist[s[i:i+2]]
+            if i + 1 < n and s[i:i + 2] in dist:
+                res += dist[s[i:i + 2]]
                 i += 2
             else:
                 res += dist[s[i]]

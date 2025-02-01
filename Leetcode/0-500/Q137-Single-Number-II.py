@@ -6,7 +6,7 @@ def single_number(nums: List[int]):
     set_sum = sum(nums_set) * 3
     current_sum = sum(nums)
 
-    return int((set_sum - current_sum)/2)
+    return int((set_sum - current_sum) / 2)
 
 
 print(single_number([2, 2, 3, 2]))

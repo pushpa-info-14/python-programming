@@ -17,7 +17,6 @@ Example 2:
 
 
 def longest_palindrome(s: str) -> str:
-
     def check_palindrome(s, l, r, res, res_len):
         while l >= 0 and r < len(s) and s[l] == s[r]:
             if (r - l + 1) > res_len:

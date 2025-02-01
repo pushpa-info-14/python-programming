@@ -16,11 +16,12 @@ class Solution:
         count = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] and (row[i] > 1 or col[j]>1):
+                if grid[i][j] and (row[i] > 1 or col[j] > 1):
                     count += 1
         return count
 
+
 s = Solution()
-print(s.countServers([[1,0],[0,1]]))
-print(s.countServers([[1,0],[1,1]]))
-print(s.countServers([[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]))
+print(s.countServers([[1, 0], [0, 1]]))
+print(s.countServers([[1, 0], [1, 1]]))
+print(s.countServers([[1, 1, 0, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 0, 1]]))

@@ -26,7 +26,7 @@ class Solution:
             1000: "M"
         }
 
-        values = sorted(mapping.keys(), reverse= True)
+        values = sorted(mapping.keys(), reverse=True)
 
         res = ""
         for i in values:
@@ -34,6 +34,7 @@ class Solution:
                 res += mapping[i] * (num // i)
                 num = num % i
         return res
+
 
 s = Solution()
 print(s.intToRoman(7))

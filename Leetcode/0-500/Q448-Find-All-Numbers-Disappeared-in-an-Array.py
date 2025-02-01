@@ -42,12 +42,13 @@ class Solution:
                 res.append(i + 1)
         return res
 
-s=Solution()
-print(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]))
-print(s.findDisappearedNumbers([1,1]))
-print(s.findDisappearedNumbers2([4,3,2,7,8,2,3,1]))
-print(s.findDisappearedNumbers2([1,1]))
-print(s.findDisappearedNumbers2([2,2]))
-print(s.findDisappearedNumbers3([4,3,2,7,8,2,3,1]))
-print(s.findDisappearedNumbers3([1,1]))
-print(s.findDisappearedNumbers3([2,2]))
+
+s = Solution()
+print(s.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]))
+print(s.findDisappearedNumbers([1, 1]))
+print(s.findDisappearedNumbers2([4, 3, 2, 7, 8, 2, 3, 1]))
+print(s.findDisappearedNumbers2([1, 1]))
+print(s.findDisappearedNumbers2([2, 2]))
+print(s.findDisappearedNumbers3([4, 3, 2, 7, 8, 2, 3, 1]))
+print(s.findDisappearedNumbers3([1, 1]))
+print(s.findDisappearedNumbers3([2, 2]))

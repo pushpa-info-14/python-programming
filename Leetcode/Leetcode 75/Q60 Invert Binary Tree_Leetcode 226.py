@@ -1,7 +1,7 @@
 """
 Given the root of a binary tree, invert the tree, and return its root.
 """
-from typing import Optional, List
+from typing import Optional
 
 
 class TreeNode:

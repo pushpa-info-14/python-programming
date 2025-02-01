@@ -34,8 +34,9 @@ dictionary.search("b.."); // return True
 
 class TrieNode:
     def __init__(self):
-        self.children = {} # a : TrieNode
+        self.children = {}  # a : TrieNode
         self.word = False
+
 
 class WordDictionary:
     def __init__(self):

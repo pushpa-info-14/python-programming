@@ -12,11 +12,12 @@ class Solution:
             else:
                 seenDict[i] = 1
         for i in nums2:
-            if seenDict.get(i,0) > 0:
+            if seenDict.get(i, 0) > 0:
                 result.append(i)
-                seenDict[i] -=  1
+                seenDict[i] -= 1
         return result
 
+
 s = Solution()
-print(s.intersect([1,2,2,1],[2,2]))
-print(s.intersect([4,9,5],[9,4,9,8,4]))
+print(s.intersect([1, 2, 2, 1], [2, 2]))
+print(s.intersect([4, 9, 5], [9, 4, 9, 8, 4]))

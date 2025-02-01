@@ -15,7 +15,6 @@ Example 2:
     Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
     The substring "BBBB" has the longest repeating letters, which is 4.
 """
-import time
 
 
 def character_replacement1(s: str, k: int) -> int:

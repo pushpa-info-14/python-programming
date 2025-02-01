@@ -47,6 +47,7 @@ def decode_ways1(s):  # Dynamic Programming
             res += dfs(i + 2)
         dp[i] = res
         return res
+
     return dfs(0)
 
 

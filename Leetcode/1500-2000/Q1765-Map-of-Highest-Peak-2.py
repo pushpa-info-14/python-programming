@@ -1,4 +1,3 @@
-import heapq
 from collections import deque
 from typing import List
 
@@ -7,7 +6,7 @@ class Solution:
     def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
         m = len(isWater)
         n = len(isWater[0])
-        directions = [[0,1],[0,-1],[1,0],[-1,0]]
+        directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
         result = [[-1 for i in range(n)] for i in range(m)]
         q = deque()
 

@@ -14,6 +14,7 @@ class Solution:
 
         return list(set2)
 
+
 s = Solution()
-print(s.intersection([1,2,1],[2,2]))
-print(s.intersection([4,9,5],[9,4,9,8,4]))
+print(s.intersection([1, 2, 1], [2, 2]))
+print(s.intersection([4, 9, 5], [9, 4, 9, 8, 4]))

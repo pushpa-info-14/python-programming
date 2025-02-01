@@ -26,4 +26,3 @@ def can_attend(intervals: List[Interval]):
 
 print(can_attend([Interval(0, 30), Interval(5, 10), Interval(15, 20)]))
 print(can_attend([Interval(0, 5), Interval(5, 10), Interval(15, 20)]))
-
