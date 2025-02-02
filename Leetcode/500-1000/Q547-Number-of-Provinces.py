@@ -36,23 +36,30 @@ class Solution:
                 res += 1
         return res
 
+    def findCircleNum2(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        visited = [False for _ in range(n)]
+        provinces = 0
+
+        def dfs(node):
+            if visited[node]:
+                return
+            visited[node] = True
+            for nei in range(n):
+                if isConnected[node][nei] and not visited[nei] :
+                    dfs(nei)
+
+        for i in range(n):
+            if not visited[i]:
+                provinces += 1
+                dfs(i)
+        return provinces
 
 s = Solution()
 print(s.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
 print(s.findCircleNum([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))
 print(s.findCircleNum([[1, 1, 1], [1, 1, 1], [1, 1, 1]]))
-print(s.findCircleNum([[1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                       [0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-                       [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                       [0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
-                       [1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-                       [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
-                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1],
-                       [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
-                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-                       [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
-                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]]))
+
+print(s.findCircleNum2([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
+print(s.findCircleNum2([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))
+print(s.findCircleNum2([[1, 1, 1], [1, 1, 1], [1, 1, 1]]))
