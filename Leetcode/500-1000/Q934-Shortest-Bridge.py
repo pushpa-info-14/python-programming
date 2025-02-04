@@ -13,13 +13,12 @@ class Solution:
         def dfs(r, c):
             if r < 0 or c < 0 or r == m or c == n or grid[r][c] == 0 or visited[r][c]:
                 return 0
-            else:
-                q.append([r, c])
-                visited[r][c] = 1
-                res = 1
-                for dr, dc in directions:
-                    res += dfs(r + dr, c + dc)
-                return res
+            q.append([r, c])
+            visited[r][c] = 1
+            res = 1
+            for dr, dc in directions:
+                res += dfs(r + dr, c + dc)
+            return res
 
         def bfs():
             min_flips = 0
