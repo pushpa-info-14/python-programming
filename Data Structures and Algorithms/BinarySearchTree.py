@@ -1,9 +1,3 @@
-countries = ["USA", "India", "USA", "China", "India"]
-print(countries)
-
-countries_set = set(countries)
-print(countries_set)
-
 """
 -Every node has at most 2 child nodes
 -Binary Search Tree or BST
