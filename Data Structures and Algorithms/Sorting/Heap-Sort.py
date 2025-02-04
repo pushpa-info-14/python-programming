@@ -57,8 +57,8 @@ def heap_sort(arr):
     for i in reversed(range(len(arr) // 2)):
         heapify_down(arr, i)
     for i in range(len(arr) - 1, 0, -1):
-        swap(arr, 0, i)
-        heapify_down(arr, 0, i)
+        swap(arr, 0, i) # Swap heap root with last element
+        heapify_down(arr, 0, i) # Heapify root with heap size = i
     return arr
 
 
