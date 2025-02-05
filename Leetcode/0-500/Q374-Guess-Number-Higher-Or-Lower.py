@@ -16,7 +16,7 @@ class Solution:
     def guessNumber(self, n: int) -> int:
         l, r = 0, n
         while l <= r:
-            mid = l + (r - l + 1) // 2
+            mid = (l + r) // 2
             res = guess(mid)
 
             if res == 0:
