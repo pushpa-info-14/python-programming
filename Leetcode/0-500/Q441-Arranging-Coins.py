@@ -23,10 +23,10 @@ class Solution:
         l, r = 0, n
         while l <= r:
             mid = (l + r) // 2
-            val = (mid + 1) * mid // 2
-            if val == n:
+            coins = (mid + 1) * mid // 2
+            if coins == n:
                 return mid
-            elif val < n:
+            elif coins < n:
                 l = mid + 1
             else:
                 r = mid - 1
