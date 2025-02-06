@@ -19,6 +19,19 @@ class Solution:
         # x(x+1)/2 = n
         return int(math.sqrt(2 * n + 0.25) - 0.5)
 
+    def arrangeCoins3(self, n: int) -> int:
+        l, r = 0, n
+        while l <= r:
+            mid = (l + r) // 2
+            val = (mid + 1) * mid // 2
+            if val == n:
+                return mid
+            elif val < n:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return r
+
 
 s = Solution()
 print(s.arrangeCoins(5))
@@ -27,3 +40,6 @@ print(s.arrangeCoins(1))
 print(s.arrangeCoins2(5))
 print(s.arrangeCoins2(8))
 print(s.arrangeCoins2(1))
+print(s.arrangeCoins3(5))
+print(s.arrangeCoins3(8))
+print(s.arrangeCoins3(1))
