@@ -7,15 +7,13 @@ class Solution:
         heapq.heapify(nums)
         operations = 0
 
-        while nums:
-            if nums[0] < k:
-                x = heapq.heappop(nums)
-                y = heapq.heappop(nums)
-                z = min(x, y) * 2 + max(x, y)
-                heapq.heappush(nums, z)
-                operations += 1
-            else:
-                return operations
+        while nums[0] < k:
+            x = heapq.heappop(nums)
+            y = heapq.heappop(nums)
+            z = min(x, y) * 2 + max(x, y)
+            heapq.heappush(nums, z)
+            operations += 1
+        return operations
 
 
 s = Solution()
