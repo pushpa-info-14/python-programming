@@ -20,6 +20,8 @@ class Solution:
             if at == 0:
                 return True
 
+            visited2.add(at)
+
             end = True
             for nei in adj[at]:
                 if nei not in visited2:
@@ -27,22 +29,21 @@ class Solution:
             if end:
                 return False
 
-            visited2.add(at)
-
             for nei in adj[at]:
                 if nei not in visited2:
                     if move_bob(nei, income, time + 1):
                         return True
                     else:
                         time_at[nei] = -1
-                        if nei in visited2:
-                            visited2.remove(nei)
+                        visited2.remove(nei)
 
         def move_alice(at, income, time):
             if time_at[at] == time:
                 income += amount[at] // 2
             elif time_at[at] > time or time_at[at] == -1:
                 income += amount[at]
+
+            visited.add(at)
 
             end = True
             for nei in adj[at]:
@@ -51,7 +52,6 @@ class Solution:
             if end:
                 return income
 
-            visited.add(at)
             res = -math.inf
             for nei in adj[at]:
                 if nei not in visited:
