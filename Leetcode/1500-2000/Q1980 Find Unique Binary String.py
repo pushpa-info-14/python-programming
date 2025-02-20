@@ -13,7 +13,7 @@ class Solution:
                     return False
                 res[0] = cur
                 return True
-            if backtrack(cur + "1") or backtrack(cur + "0"):
+            if backtrack(cur + "0") or backtrack(cur + "1"):
                 return True
             return False
 
