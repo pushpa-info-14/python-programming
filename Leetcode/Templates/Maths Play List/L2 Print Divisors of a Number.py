@@ -8,4 +8,5 @@ def print_divisors(n):
     res.sort()
     print(res)
 
+
 print_divisors(36)
