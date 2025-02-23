@@ -48,7 +48,27 @@ class Solution:
             ans = max(ans, dp[n - 1][i])
         return ans
 
+    def ninjaTrainingTabulation2(self, n: int, points: List[List[int]]) -> int:
+        prev = [0] * 3
+
+        for task in range(3):
+            prev[task] = points[0][task]
+
+        for day in range(1, n):
+            cur = [0] * 3
+            for last_task in range(3):
+                for next_task in range(3):
+                    if last_task != next_task:
+                        cur[next_task] = max(cur[next_task], prev[last_task] + points[day][next_task])
+            prev = cur.copy()
+
+        ans = 0
+        for i in range(3):
+            ans = max(ans, prev[i])
+        return ans
+
 
 s = Solution()
 print(s.ninjaTraining(2, [[10, 50, 1], [5, 100, 11]]))
 print(s.ninjaTrainingTabulation(2, [[10, 50, 1], [5, 100, 11]]))
+print(s.ninjaTrainingTabulation2(2, [[10, 50, 1], [5, 100, 11]]))
