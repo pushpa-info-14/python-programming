@@ -35,6 +35,6 @@ class Solution:
 
 
 s = Solution()
-# print(s.shortestCommonSupersequence("abac", "cab"))
-# print(s.shortestCommonSupersequence("aaaaaaaa", "aaaaaaaa"))
+print(s.shortestCommonSupersequence("abac", "cab"))
+print(s.shortestCommonSupersequence("aaaaaaaa", "aaaaaaaa"))
 print(s.shortestCommonSupersequence("aaaaaaaaa", "aaaaaaaa"))
