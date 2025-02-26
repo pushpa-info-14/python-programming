@@ -17,10 +17,33 @@ def longest(nums, k):
 
     return max_len
 
+def longest2(nums, k):
+    n = len(nums)
+    cur_sum = 0
+    res = 0
 
-# This only works for positive numbers.
+    l, r = 0, 0
+
+    while r < n:
+        cur_sum += nums[r]
+
+        while l <= r and cur_sum > k:
+            cur_sum -= nums[l]
+            l += 1
+
+        if cur_sum == k:
+            res = max(res, r - l + 1)
+        r += 1
+    return res
+
+# This only works for positive numbers. Not 0s
 # Will not work for these [2, 0, 0, 0, 3]
 # Map will be replacing 2 -> 0, 2 -> 1, 2 -> 2, 2 -> 3
 print(longest([1, 2, 3, 1, 1, 1, 1, 4, 2, 3], 3))
 print(longest([2, 0, 0, 0, 3], 3))  # Wrong
 print(longest([1, 2, 3, 0, 0, 0, 1, 1, 1, 4, 2, 3], 3))  # Wrong
+
+# This is the optimal solution if numbers are positive and 0s
+print(longest2([1, 2, 3, 1, 1, 1, 1, 4, 2, 3], 3))
+print(longest2([2, 0, 0, 0, 3], 3))  # Wrong
+print(longest2([1, 2, 3, 0, 0, 0, 1, 1, 1, 4, 2, 3], 3))
