@@ -18,8 +18,19 @@ class Solution:
 
         return True if n == 0 else False
 
+    def checkPowersOfThree2(self, n: int) -> bool:
+        while n:
+            if n % 3 == 2:
+                return False
+            n //= 3
+
+        return True
+
 
 s = Solution()
 print(s.checkPowersOfThree(12))
 print(s.checkPowersOfThree(91))
 print(s.checkPowersOfThree(21))
+print(s.checkPowersOfThree2(12))
+print(s.checkPowersOfThree2(91))
+print(s.checkPowersOfThree2(21))
