@@ -9,7 +9,8 @@ class Solution:
     def coloredCells2(self, n: int) -> int:
         return 1 + 4 * (n - 1) * n // 2
 
-s =Solution()
+
+s = Solution()
 print(s.coloredCells(1))
 print(s.coloredCells(2))
 print(s.coloredCells2(1))
