@@ -2,7 +2,20 @@ from typing import List
 
 
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSumBrute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        hashset = set()
+        for i in range(n):
+            for j in range(i + 1, n):
+                for k in range(j + 1, n):
+                    cur_sum = nums[i] + nums[j] + nums[k]
+                    if cur_sum == 0:
+                        temp = [nums[i], nums[j], nums[k]]
+                        temp.sort()
+                        hashset.add(tuple(temp))
+        return [list(i) for i in hashset]
+
+    def threeSumBetter(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         res = set()
         for i in range(n):
@@ -16,7 +29,7 @@ class Solution:
                 hashset.add(nums[j])
         return [list(i) for i in res]
 
-    def threeSum2(self, nums: List[int]) -> List[List[int]]:
+    def threeSumOptimal1(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         nums.sort()
         res = []
@@ -38,7 +51,7 @@ class Solution:
                         l += 1
         return res
 
-    def threeSum3(self, nums: List[int]) -> List[List[int]]:
+    def threeSumOptimal2(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         res = []
         nums.sort()
@@ -66,6 +79,7 @@ class Solution:
 
 
 s = Solution()
-print(s.threeSum([-1, -1, 2, 0, 1]))
-print(s.threeSum2([-1, -1, 2, 0, 1]))
-print(s.threeSum3([-1, -1, 2, 0, 1]))
+print(s.threeSumBrute([-1, -1, 2, 0, 1]))
+print(s.threeSumBetter([-1, -1, 2, 0, 1]))
+print(s.threeSumOptimal1([-1, -1, 2, 0, 1]))
+print(s.threeSumOptimal2([-1, -1, 2, 0, 1]))
