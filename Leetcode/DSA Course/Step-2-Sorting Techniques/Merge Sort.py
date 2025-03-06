@@ -28,5 +28,6 @@ def mergeSort(arr, low, high):
 
 
 numsArray = [5, 4, 3, 2, 1]
+print(numsArray)
 mergeSort(numsArray, 0, len(numsArray) - 1)
 print(numsArray)
