@@ -44,7 +44,7 @@ def mergeSort(arr, low, high):
     return cnt
 
 
-def countInversionsBetter(nums):
+def countInversionsOptimal(nums):
     res = mergeSort(nums, 0, len(nums) - 1)
     print(nums)
     return res
@@ -55,4 +55,4 @@ mergeSort(numsArray, 0, len(numsArray) - 1)
 print(numsArray)
 
 print(countInversionsBrute([5, 3, 2, 4, 1]))
-print(countInversionsBetter([5, 3, 2, 4, 1]))
+print(countInversionsOptimal([5, 3, 2, 4, 1]))
