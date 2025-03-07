@@ -6,16 +6,16 @@ class Solution:
         n = len(nums)
         res = []
 
-        def dfs(i, cur, summation):
+        def dfs(i, cur):
             if i == n:
                 res.append(cur.copy())
                 return
             cur.append(nums[i])
-            dfs(i + 1, cur, summation + nums[i])
+            dfs(i + 1, cur)
             cur.pop()
-            dfs(i + 1, cur, summation)
+            dfs(i + 1, cur)
 
-        dfs(0, [], 0)
+        dfs(0, [])
         return res
 
 
