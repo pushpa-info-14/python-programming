@@ -5,20 +5,23 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         res = []
-        freq = [False] * n
+        freq = {num: 0 for num in nums}
+        for num in nums:
+            freq[num] += 1
 
-        def dfs(cur):
+        def backtrack(cur):
             if len(cur) == n:
                 res.append(cur.copy())
                 return
-            for i in range(n):
-                if not freq[i]:
-                    freq[i] = True
-                    cur.append(nums[i])
-                    dfs(cur)
+            for num in freq:
+                if freq[num] > 0:
+                    freq[num] -= 1
+                    cur.append(num)
+                    backtrack(cur)
                     cur.pop()
-                    freq[i] = False
-        dfs([])
+                    freq[num] += 1
+
+        backtrack([])
         return res
 
 
