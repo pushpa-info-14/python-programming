@@ -18,7 +18,25 @@ class Solution:
         dfs(0, [])
         return res
 
+    def subsets2(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        res = []
+
+        def dfs(i, cur):
+            res.append(cur.copy())
+
+            for j in range(i, n):
+                cur.append(nums[j])
+                dfs(j + 1, cur)
+                cur.pop()
+
+        dfs(0, [])
+        return res
+
 
 s = Solution()
 print(s.subsets([1, 2, 3]))
 print(s.subsets([0]))
+
+print(s.subsets2([1, 2, 3]))
+print(s.subsets2([0]))
