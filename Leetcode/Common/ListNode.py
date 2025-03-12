@@ -9,4 +9,4 @@ class ListNode:
         while cur:
             res.append(cur.val)
             cur = cur.next
-        return res
+        print(res)
