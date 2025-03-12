@@ -14,7 +14,7 @@ def createLinkedList(nums):
 def printLengthOfLinkedList(head: ListNode):
     count = 0
     cur = head
-    while cur is not None:
+    while cur:
         count += 1
         cur = cur.next
     print(count)
@@ -23,7 +23,7 @@ def printLengthOfLinkedList(head: ListNode):
 def printLinkedList(head: ListNode):
     res = []
     cur = head
-    while cur is not None:
+    while cur:
         res.append(cur.val)
         cur = cur.next
     print(res)
