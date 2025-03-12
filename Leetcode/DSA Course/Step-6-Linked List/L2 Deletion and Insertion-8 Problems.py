@@ -20,7 +20,7 @@ def deleteTail(head: ListNode):
     return head
 
 
-def deleteAtK(head: ListNode, k: int):
+def deleteKthElement(head: ListNode, k: int):
     if head is None: return None
 
     if k == 1:
@@ -60,7 +60,7 @@ def insertAtHead(head: ListNode, val: int):
     return ListNode(val, head)
 
 
-def insertLasAtTail(head: Optional[ListNode], val: int):
+def insertAtTail(head: Optional[ListNode], val: int):
     if not head:
         return ListNode(val)
 
@@ -71,7 +71,7 @@ def insertLasAtTail(head: Optional[ListNode], val: int):
     return head
 
 
-def insertAtK(head: Optional[ListNode], k: int, val: int):
+def insertAtKthElement(head: Optional[ListNode], k: int, val: int):
     if not head:
         if k == 1:
             return ListNode(val)
@@ -115,12 +115,12 @@ head = ListNode(1, ListNode(2, ListNode(3)))
 head = deleteTail(head)
 head.print()
 
-print("Q3: deleteAtK --------------------")
+print("Q3: deleteKthElement --------------------")
 head = ListNode(1, ListNode(2, ListNode(3)))
-head = deleteAtK(head, 3)
+head = deleteKthElement(head, 3)
 head.print()
 head = ListNode(1, ListNode(2, ListNode(3)))
-head = deleteAtK(head, 2)
+head = deleteKthElement(head, 2)
 head.print()
 
 print("Q4: deleteElement --------------------")
@@ -134,18 +134,18 @@ head = ListNode(1, ListNode(2, ListNode(3)))
 head = insertAtHead(head, 25)
 head.print()
 
-print("Q6: insertLasAtTail --------------------")
+print("Q6: insertAtTail --------------------")
 head = None
-head = insertLasAtTail(head, 25)
-head = insertLasAtTail(head, 2)
+head = insertAtTail(head, 25)
+head = insertAtTail(head, 2)
 head.print()
 
-print("Q7: insertAtK --------------------")
+print("Q7: insertAtKthElement --------------------")
 head = None
-head = insertAtK(head, 1, 25)
+head = insertAtKthElement(head, 1, 25)
 head.print()
 head = ListNode(1, ListNode(2, ListNode(3)))
-head = insertAtK(head, 3, 25)
+head = insertAtKthElement(head, 3, 25)
 head.print()
 
 print("Q8: insertBefore --------------------")
