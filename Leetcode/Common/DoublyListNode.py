@@ -11,3 +11,14 @@ class DoublyListNode:
             res.append(cur.val)
             cur = cur.next
         print(res)
+
+    @staticmethod
+    def create(nums):
+        n = len(nums)
+        head = DoublyListNode(nums[0])
+        prev = head
+        for i in range(1, n):
+            temp = DoublyListNode(nums[i], None, prev)
+            prev.next = temp
+            prev = temp
+        return head

@@ -3,17 +3,6 @@ from collections import deque
 from Leetcode.Common.DoublyListNode import DoublyListNode
 
 
-def createDoublyLinkedList(nums):
-    n = len(nums)
-    head = DoublyListNode(nums[0])
-    prev = head
-    for i in range(1, n):
-        temp = DoublyListNode(nums[i], None, prev)
-        prev.next = temp
-        prev = temp
-    return head
-
-
 def reverse1(head: DoublyListNode):
     stack = deque()
     temp = head
@@ -43,12 +32,12 @@ def reverse2(head: DoublyListNode):
     return prev.prev
 
 
-ls = createDoublyLinkedList([4, 2, 3, 1])
+ls = DoublyListNode.create([4, 2, 3, 1])
 ls.print()
 ls = reverse1(ls)
 ls.print()
 
-ls = createDoublyLinkedList([4, 2, 3, 1])
+ls = DoublyListNode.create([4, 2, 3, 1])
 ls.print()
 ls = reverse2(ls)
 ls.print()
