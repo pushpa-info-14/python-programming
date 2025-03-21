@@ -9,6 +9,7 @@ def check(head: ListNode):
             return True
         else:
             mp[cur] = 1
+        cur = cur.next
     return False
 
 
