@@ -16,15 +16,10 @@ def merge(head1: ListNode, head2: ListNode):
             temp2 = temp2.next
         temp = temp.next
 
-    while temp1:
+    if temp1:
         temp.next = temp1
-        temp1 = temp1.next
-        temp = temp.next
-
-    while temp2:
+    if temp2:
         temp.next = temp2
-        temp2 = temp2.next
-        temp = temp.next
 
     return dummy.next
 
