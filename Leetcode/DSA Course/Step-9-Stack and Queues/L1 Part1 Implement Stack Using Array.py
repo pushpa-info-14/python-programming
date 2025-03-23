@@ -7,18 +7,18 @@ class Stack:
         self.top += 1
         self.array[self.top] = x
 
-    def peek(self):
-        if self.top == -1:
-            print("empty")
-            return None
-        return self.array[self.top]
-
     def pop(self):
         if self.top == -1:
-            print("empty")
+            print("Stack is empty")
             return None
         self.top -= 1
         return self.array[self.top + 1]
+
+    def peek(self):
+        if self.top == -1:
+            print("Stack is empty")
+            return None
+        return self.array[self.top]
 
     def size(self):
         return self.top + 1

@@ -13,12 +13,18 @@ class Stack:
         self.cur_size += 1
 
     def pop(self):
+        if self.top is None:
+            print("Stack is empty")
+            return None
         temp = self.top
         self.top = self.top.next
         self.cur_size -= 1
         return temp.val
 
     def peek(self):
+        if self.top is None:
+            print("Stack is empty")
+            return None
         return self.top.val
 
     def size(self):
