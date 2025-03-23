@@ -1,20 +1,20 @@
 class Queue:
     def __init__(self, n):
-        self.size = n
+        self.max_size = n
         self.array = [0] * n
         self.cur_size = 0
         self.start = -1
         self.end = -1
 
     def push(self, x):
-        if self.cur_size == self.size:
+        if self.cur_size == self.max_size:
             print("Queue is full")
             return None
         if self.cur_size == 0:
             self.start = 0
             self.end = 0
         else:
-            self.end = (self.end + 1) % self.size
+            self.end = (self.end + 1) % self.max_size
         self.array[self.end] = x
         self.cur_size += 1
 
@@ -27,7 +27,7 @@ class Queue:
             self.start = -1
             self.end = -1
         else:
-            self.start = (self.start + 1) % self.size
+            self.start = (self.start + 1) % self.max_size
         self.cur_size -= 1
         return element
 
@@ -48,3 +48,4 @@ print(queue.peek())
 print(queue.pop())
 print(queue.peek())
 print(queue.pop())
+print(queue.size())
