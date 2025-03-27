@@ -35,7 +35,28 @@ class Solution:
             res = max(res, heights[i] * (nse[i] - pse[i] - 1))
         return res
 
+    def largestRectangleArea2(self, heights: List[int]) -> int:
+        n = len(heights)
+        stack = []
+        res = 0
+        for i in range(n):
+            while stack and heights[stack[-1]] > heights[i]:
+                element = heights[stack.pop()]
+                nse = i
+                pse = -1 if not stack else stack[-1]
+                res = max(res, element * (nse - pse - 1))
+            stack.append(i)
+        while stack:
+            element = heights[stack.pop()]
+            nse = n
+            pse = -1 if not stack else stack[-1]
+            res = max(res, element * (nse - pse - 1))
+
+        return res
+
 
 s = Solution()
 print(s.largestRectangleArea([2, 1, 5, 6, 2, 3]))
 print(s.largestRectangleArea([2, 4]))
+print(s.largestRectangleArea2([2, 1, 5, 6, 2, 3]))
+print(s.largestRectangleArea2([2, 4]))
