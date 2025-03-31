@@ -22,6 +22,7 @@ class LRUCache:
         next_node = node.next
         prev_node.next = next_node
         next_node.prev = prev_node
+        self.size -= 1
 
     def insert_after_head(self, node: Node):
         temp = self.head.next
@@ -29,6 +30,7 @@ class LRUCache:
         node.next = temp
         node.prev = self.head
         temp.prev = node
+        self.size += 1
 
     def get(self, key: int) -> int:
         if key not in self.mp:
@@ -48,7 +50,6 @@ class LRUCache:
             node = Node(key, value)
             self.mp[key] = node
             self.insert_after_head(node)
-            self.size += 1
         else:
             delete_node = self.tail.prev
             self.delete(delete_node)
