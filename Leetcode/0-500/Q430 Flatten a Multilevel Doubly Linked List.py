@@ -36,11 +36,10 @@ class Solution:
             next_node = dfs(node.next)
 
             temp = node
+            temp.child = None
             if child_node:
                 temp.next = child_node
-                child_node.prev = temp
                 while temp.next:
-                    temp.child = None
                     temp.next.prev = temp
                     temp = temp.next
             if next_node:
