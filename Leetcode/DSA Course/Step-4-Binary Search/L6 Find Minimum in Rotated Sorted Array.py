@@ -9,11 +9,18 @@ class Solution:
         low, high = 0, n - 1
         while low <= high:
             mid = (low + high) // 2
-            # left half is sorted
+
+            # Search space is already sorted
+            # Then always nums[low] will be the smaller
+            if nums[low] <= nums[high]:
+                res = min(res, nums[low])
+                break
+
+            # Left half is sorted
             if nums[low] <= nums[mid]:
                 res = min(res, nums[low])
                 low = mid + 1
-            else:  # right half is sorted
+            else:  # Right half is sorted
                 res = min(res, nums[mid])
                 high = mid - 1
         return res
