@@ -50,7 +50,8 @@ class Solution:
                 high = mid - 1
         return False
 
-
+# Each row is sorted in non-decreasing order.
+# The first integer of each row is greater than the last integer of the previous row.
 s = Solution()
 print(s.searchMatrix(matrix=[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target=3))
 print(s.searchMatrix(matrix=[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target=13))
