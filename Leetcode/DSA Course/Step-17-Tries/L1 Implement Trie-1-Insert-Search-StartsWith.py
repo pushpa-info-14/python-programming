@@ -12,11 +12,9 @@ class Trie:
     def insert(self, word: str) -> None:
         cur = self.root
         for c in word:
-            if c in cur.children:
-                cur = cur.children[c]
-            else:
+            if c not in cur.children:
                 cur.children[c] = TrieNode()
-                cur = cur.children[c]
+            cur = cur.children[c]
         cur.flag = True
 
     def search(self, word: str) -> bool:
@@ -24,8 +22,7 @@ class Trie:
         for c in word:
             if c not in cur.children:
                 return False
-            else:
-                cur = cur.children[c]
+            cur = cur.children[c]
         return cur.flag
 
     def startsWith(self, prefix: str) -> bool:
@@ -33,8 +30,7 @@ class Trie:
         for c in prefix:
             if c not in cur.children:
                 return False
-            else:
-                cur = cur.children[c]
+            cur = cur.children[c]
         return True
 
 
