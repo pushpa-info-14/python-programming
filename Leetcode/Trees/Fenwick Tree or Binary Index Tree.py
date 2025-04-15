@@ -34,3 +34,5 @@ fenwick.update(7, nums[7])
 print(fenwick.query(7) - fenwick.query(0))
 print(fenwick.query(7) - fenwick.query(6))
 print(fenwick.query(7) - fenwick.query(5))
+
+# Leetcode 315 Count of Smaller Numbers After Self
