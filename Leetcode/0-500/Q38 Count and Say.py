@@ -18,7 +18,15 @@ class Solution:
             return "1"
         return self.runLengthEncoding(self.countAndSay(n - 1))
 
+    def countAndSay2(self, n: int) -> str:
+        res = "1"
+        for i in range(2, n + 1):
+            res = self.runLengthEncoding(res)
+        return res
+
 
 solution = Solution()
 print(solution.countAndSay(4))
 print(solution.countAndSay(1))
+print(solution.countAndSay2(4))
+print(solution.countAndSay2(1))
