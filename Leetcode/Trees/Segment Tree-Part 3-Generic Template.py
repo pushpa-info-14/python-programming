@@ -105,10 +105,11 @@ print(summation.val)
 print([segmentTree.query(i, i).val for i in range(n)])
 
 segmentTree.update(2, 7, Update(10))
+print([segmentTree.query(i, i).val for i in range(n)])
 segmentTree.update(2, 7, Update(20))
 print([segmentTree.query(i, i).val for i in range(n)])
-
 segmentTree.update(2, 7, Update(10))
+print([segmentTree.query(i, i).val for i in range(n)])
 segmentTree.update(2, 7, Update(20))
 print([segmentTree.query(i, i).val for i in range(n)])
 
