@@ -138,6 +138,8 @@ P8: Multiply all the elements in range [l, r] by number v
     Find the sum of elements in the range [l, r] 
 P9: Apply the operation ai = (ai | v) (bitwise OR) to all the elements in the range [l, r]
     Find the bitwise AND of all the elements in the range [l, r]
+    
+https://cp-algorithms.com/data_structures/segment_tree.html#practice-problems
 """
 
 # LeetCode 307
