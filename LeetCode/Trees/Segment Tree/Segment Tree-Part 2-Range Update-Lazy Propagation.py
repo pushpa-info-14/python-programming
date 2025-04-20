@@ -28,6 +28,20 @@ class SegmentTree:
         right_ans = self._query(2 * v + 1, tm + 1, tr, l, r)
         return left_ans + right_ans
 
+    def _update(self, v, tl, tr, l, r, val):
+        if r < tl or tr < l:  # No overlap
+            return
+        if l <= tl and tr <= r:  # Full overlap
+            self._apply(v, tl, tr, val)
+            return
+
+        # Partial overlap
+        self._pushDown(v, tl, tr)
+        tm = (tl + tr) // 2
+        self._update(2 * v, tl, tm, l, r, val)
+        self._update(2 * v + 1, tm + 1, tr, l, r, val)
+        self.tree[v] = self.tree[2 * v] + self.tree[2 * v + 1]
+
     def _pushDown(self, v, tl, tr):
         if not self.isLazy[v]:
             return
@@ -46,20 +60,6 @@ class SegmentTree:
         #     self.isLazy[v] = True
         #     self.pendingUpdates[v] = val
         # self.tree[v] = (tr - tl + 1) * val
-
-    def _update(self, v, tl, tr, l, r, val):
-        if l <= tl and tr <= r:  # Full overlap
-            self._apply(v, tl, tr, val)
-            return
-        if r < tl or tr < l:  # No overlap
-            return
-
-        # Partial overlap
-        self._pushDown(v, tl, tr)
-        tm = (tl + tr) // 2
-        self._update(2 * v, tl, tm, l, r, val)
-        self._update(2 * v + 1, tm + 1, tr, l, r, val)
-        self.tree[v] = self.tree[2 * v] + self.tree[2 * v + 1]
 
     def build(self, arr):
         self._build(arr, 1, 0, self.size - 1)
