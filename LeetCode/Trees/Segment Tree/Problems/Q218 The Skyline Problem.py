@@ -6,24 +6,27 @@ class SegmentTree:
         self.n = n
         self.tree = [0] * (4 * n)
 
-    def update(self, node, start, end, l, r, h):
-        if start > r or end < l:
+    def update(self, v, tl, tr, l, r, val):
+        if tl > r or tr < l:
             return
-        if l <= start and end <= r:
-            self.tree[node] = max(self.tree[node], h)
+        if l <= tl and tr <= r:
+            self.tree[v] = max(self.tree[v], val)
             return
-        mid = (start + end) // 2
-        self.update(2 * node, start, mid, l, r, h)
-        self.update(2 * node + 1, mid + 1, end, l, r, h)
+        mid = (tl + tr) // 2
+        self.update(2 * v, tl, mid, l, r, val)
+        self.update(2 * v + 1, mid + 1, tr, l, r, val)
 
-    def query(self, node, start, end, idx):
-        if start == end:
-            return self.tree[node]
-        mid = (start + end) // 2
-        if idx <= mid:
-            return max(self.tree[node], self.query(2 * node, start, mid, idx))
+    def query(self, v, tl, tr, index):
+        if tl > index or tr < index:
+            return 0
+        if tl == tr:
+            return self.tree[v]
+        mid = (tl + tr) // 2
+
+        if index <= mid:
+            return max(self.tree[v], self.query(2 * v, tl, mid, index))
         else:
-            return max(self.tree[node], self.query(2 * node + 1, mid + 1, end, idx))
+            return max(self.tree[v], self.query(2 * v + 1, mid + 1, tr, index))
 
 
 class Solution:
