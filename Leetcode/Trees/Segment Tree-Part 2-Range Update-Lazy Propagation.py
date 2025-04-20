@@ -88,5 +88,3 @@ print([segmentTree.query(i, i) for i in range(n)])
 segmentTree.update(2, 7, 10)
 segmentTree.update(2, 7, 20)
 print([segmentTree.query(i, i) for i in range(n)])
-
-# LeetCode 307

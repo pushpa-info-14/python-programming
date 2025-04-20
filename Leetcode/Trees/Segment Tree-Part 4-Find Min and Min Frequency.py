@@ -1,9 +1,16 @@
+import math
+
+
 class Node:
-    def __init__(self, val=0):
+    def __init__(self, val=math.inf):
         self.val = val
+        self.count = 1 if val != math.inf else 0
 
     def merge(self, l, r):
-        self.val = l.val + r.val
+        self.val = min(l.val, r.val)
+        self.count = 0
+        if self.val == l.val: self.count += l.count
+        if self.val == r.val: self.count += r.count
 
 
 class Update:
@@ -11,10 +18,11 @@ class Update:
         self.val = val
 
     def combine(self, other_update):
-        self.val += other_update.val
+        self.val = other_update.val
 
     def apply(self, node: Node, tl: int, tr: int):
-        node.val += (tr - tl + 1) * self.val
+        node.val = self.val
+        node.count = tr - tl + 1
 
 
 class SegmentTree:
@@ -90,25 +98,47 @@ class SegmentTree:
         self._update(1, 0, self.size - 1, l, r, update)
 
 
+# Find min & freq of min in a range
 nums = [1, 2, 1, 4, 2, 3, 1, 1]
 n = len(nums)
 segmentTree = SegmentTree(n)
 segmentTree.build(nums)
 print([segmentTree.query(i, i).val for i in range(n)])
 
-summation = segmentTree.query(1, 5)
-print(summation.val)
+minimum = segmentTree.query(1, 5).val
+freq = segmentTree.query(1, 5).count
+print(minimum, freq)
 
 segmentTree.update(2, 2, Update(10))
-summation = segmentTree.query(1, 5)
-print(summation.val)
+minimum = segmentTree.query(1, 5).val
+freq = segmentTree.query(1, 5).count
+print(minimum, freq)
 print([segmentTree.query(i, i).val for i in range(n)])
 
-segmentTree.update(2, 7, Update(10))
+segmentTree.update(2, 2, Update(1))
+segmentTree.update(3, 4, Update(1))
+minimum = segmentTree.query(2, 5).val
+freq = segmentTree.query(2, 5).count
+print(minimum, freq)
 print([segmentTree.query(i, i).val for i in range(n)])
-segmentTree.update(2, 7, Update(20))
-print([segmentTree.query(i, i).val for i in range(n)])
-segmentTree.update(2, 7, Update(10))
-print([segmentTree.query(i, i).val for i in range(n)])
-segmentTree.update(2, 7, Update(20))
-print([segmentTree.query(i, i).val for i in range(n)])
+
+"""
+P1: Find min & freq of min in a range
+P2: Range sum query - covered
+P3: Range min query
+P4: Add to the range [l, r] 
+    Find the value at index i
+P5: Set the value v in range [l, r] by the operation ai= max(ai, v)
+    Find max value in range [l, r]
+P6: Range assign update on the segment [l, r] with the value v (0 <= v <= 1e9)
+    Range sum query [l, r]
+P7: Add v to the segment [l, r]
+    Find min on the segment [l, r]
+P8: Multiply all the elements in range [l, r] by number v
+    Find the sum of elements in the range [l, r] 
+P9: Apply the operation ai = (ai | v) (bitwise OR) to all the elements in the range [l, r]
+    Find the bitwise AND of all the elements in the range [l, r]
+"""
+
+# LeetCode 307
+# LeetCode 315, 3161

@@ -62,5 +62,3 @@ segmentTree.update(2, 10)
 
 summation = segmentTree.query(1, 5)
 print(summation)
-
-# LeetCode 307
