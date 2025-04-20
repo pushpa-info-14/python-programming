@@ -47,5 +47,6 @@ def maxXOR(arr1: List[int], arr2: List[int]):
 Given an array of numbers, and a number x. Find the max value of array[i]^x
 """
 
+# https://www.naukri.com/code360/problems/maximum-xor_973113?interviewProblemRedirection=true&search=maximum%20xor
 print(maxXOR([6, 8], [7, 8, 2]))
 print(maxXOR([1, 2], [1, 1]))
