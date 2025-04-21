@@ -11,8 +11,8 @@ class Solution:
             max_x = max(max_x, x)
             min_x = min(min_x, x)
 
-        res = upper - lower - (max_x - min_x)
-        return res + 1 if res >= 0 else 0
+        res = (upper - lower) - (max_x - min_x) + 1
+        return res if res > 0 else 0
 
 
 s = Solution()
