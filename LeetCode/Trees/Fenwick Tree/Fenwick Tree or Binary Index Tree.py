@@ -23,14 +23,18 @@ fenwick = FenwickTree(n)
 
 for i in range(n):
     fenwick.update(i, nums[i])
+
+# Range query
 print(fenwick.query(7) - fenwick.query(0))
 print(fenwick.query(7) - fenwick.query(6))
 print(fenwick.query(7) - fenwick.query(5))
 
-fenwick.update(7, -nums[7])
-nums[7] = 0
-fenwick.update(7, nums[7])
+# Point update
+fenwick.update(7, -nums[7])  # Firstly make it back to 0
+nums[7] = 0  # Update your original input array
+fenwick.update(7, nums[7])  # Update the bit array
 
+# Range query
 print(fenwick.query(7) - fenwick.query(0))
 print(fenwick.query(7) - fenwick.query(6))
 print(fenwick.query(7) - fenwick.query(5))
