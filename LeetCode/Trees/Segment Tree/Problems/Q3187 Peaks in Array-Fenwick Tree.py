@@ -20,36 +20,44 @@ class FenwickTree:
             index += (index & -index)
 
 
+def isPeak(nums, index):
+    if 0 <= index and index + 1 < len(nums) and nums[index - 1] < nums[index] > nums[index + 1]:
+        return True
+    return False
+
+
 class Solution:
     def countOfPeaks(self, nums: List[int], queries: List[List[int]]) -> List[int]:
         n = len(nums)
         ft = FenwickTree(n)
 
         for i in range(1, n - 1):
-            if nums[i - 1] < nums[i] > nums[i + 1]:
+            if isPeak(nums, i):
                 ft.update(i, 1)
 
         res = []
         for query in queries:
             if query[0] == 1:
                 l, r = query[1], query[2]
-                if r - l < 2: # At least 3 elements should exist to have a peak
+                if r - l < 2:  # At least 3 elements should exist to have a peak
                     res.append(0)
                 else:
                     res.append((ft.query(r - 1) - ft.query(l)))
             else:
                 index, val = query[1], query[2]
-                start = max(0, index - 2)
-                end = min(n, index + 2)
+                prv = index - 1
+                nxt = index + 1
                 nums[index] = val
-                for i in range(start + 1, end):
-                    peak_count = ft.query(i) - ft.query(i - 1)
-                    if i + 1 < n and nums[i - 1] < nums[i] > nums[i + 1]:
-                        if peak_count == 0:
-                            ft.update(i, 1)
-                    else:
-                        if peak_count:
-                            ft.update(i, -1)
+
+                for i in range(prv, nxt + 1):
+                    if i > 0 and i + 1 < n:
+                        peak_count = ft.query(i) - ft.query(i - 1)
+                        if isPeak(nums, i):
+                            if peak_count == 0:
+                                ft.update(i, 1)
+                        else:
+                            if peak_count:
+                                ft.update(i, -1)
 
         return res
 
