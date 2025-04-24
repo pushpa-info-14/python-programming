@@ -12,7 +12,7 @@ class FenwickTree:
 
     def update(self, index, val):
         index += 1
-        while index <= len(self.tree):
+        while index < len(self.tree):
             self.tree[index] += val
             index += (index & -index)
 
