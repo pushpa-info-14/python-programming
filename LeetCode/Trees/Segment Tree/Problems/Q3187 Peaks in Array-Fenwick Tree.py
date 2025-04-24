@@ -53,12 +53,9 @@ class Solution:
                     if i > 0 and i + 1 < n:
                         peak_count = ft.query(i) - ft.query(i - 1)
                         if isPeak(nums, i):
-                            if peak_count == 0:
-                                ft.update(i, 1)
+                            ft.update(i, -peak_count + 1)
                         else:
-                            if peak_count:
-                                ft.update(i, -1)
-
+                            ft.update(i, -peak_count)
         return res
 
 
