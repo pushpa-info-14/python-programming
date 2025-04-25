@@ -39,8 +39,8 @@ class Solution:
 
 
 s = Solution()
-# print(s.minimumDifference(nums=[1, 2, 4, 5], k=3))  # 0
-# print(s.minimumDifference(nums=[1, 3, 1, 3], k=2))  # 1
-# print(s.minimumDifference(nums=[1], k=10))  # 9
-# print(s.minimumDifference(nums=[1, 10], k=6))  # 4
-# print(s.minimumDifference(nums=[7, 6, 2, 8, 49], k=75))  # 12
+print(s.minimumDifference(nums=[1, 2, 4, 5], k=3))  # 0
+print(s.minimumDifference(nums=[1, 3, 1, 3], k=2))  # 1
+print(s.minimumDifference(nums=[1], k=10))  # 9
+print(s.minimumDifference(nums=[1, 10], k=6))  # 4
+print(s.minimumDifference(nums=[7, 6, 2, 8, 49], k=75))  # 12
