@@ -29,4 +29,5 @@ while q:
 
 print(res)
 
-# O(N) + O(2E)
+# TC O(N) + O(2E)
+# SC O(N) + O(N)
