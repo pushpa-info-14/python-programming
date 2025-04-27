@@ -23,3 +23,6 @@ class Solution:
 s = Solution()
 print(s.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
 print(s.findCircleNum([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))
+
+# SC O(N) + O(N)
+# TC O(N) + O(V+2E)
