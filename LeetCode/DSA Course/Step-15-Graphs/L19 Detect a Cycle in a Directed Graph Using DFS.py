@@ -1,4 +1,5 @@
-def detectCycle(n, adj):
+def detectCycle(graph):
+    n = len(graph)
     visited = set()
     path_visited = set()
 
@@ -6,7 +7,7 @@ def detectCycle(n, adj):
         visited.add(node)
         path_visited.add(node)
 
-        for nei in adj[node]:
+        for nei in graph[node]:
             if nei not in visited:  # When the node is not visited
                 if dfs(nei):
                     return True
@@ -16,31 +17,12 @@ def detectCycle(n, adj):
         path_visited.remove(node)
         return False
 
-    for i in range(1, n + 1):
+    for i in range(n):
         if i not in visited:
             if dfs(i):
                 return True
     return False
 
 
-print(detectCycle(n=9, adj={
-    1: [2],
-    2: [3],
-    3: [4, 7],
-    4: [5],
-    5: [6],
-    6: [],
-    7: [5],
-    8: [2, 9],
-    9: [10],
-    10: [8]
-}))
-
-print(detectCycle(n=6, adj={
-    1: [2],
-    2: [3],
-    3: [4],
-    4: [5],
-    5: [6],
-    6: []
-}))
+print(detectCycle([[1], [2], [3], [4, 7], [5], [6], [], [5], [2, 9], [10], [8]]))
+print(detectCycle([[1], [2], [3], [4], [5], [6], []]))

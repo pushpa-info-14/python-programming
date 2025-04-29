@@ -1,7 +1,8 @@
 from collections import deque
 
 
-def detectCycle(n, adj):
+def detectCycle(graph):
+    n = len(graph)
     visited = set()
 
     def bfs(src):
@@ -11,7 +12,7 @@ def detectCycle(n, adj):
 
         while q:
             node, parent = q.popleft()
-            for nei in adj[node]:
+            for nei in graph[node]:
                 if nei not in visited:
                     q.append((nei, node))
                     visited.add(nei)
@@ -19,30 +20,12 @@ def detectCycle(n, adj):
                     return True
         return False
 
-    for i in range(1, n + 1):
+    for i in range(n):
         if i not in visited:
             if bfs(i):
                 return True
     return False
 
 
-print(detectCycle(n=9, adj={
-    1: [2, 3],
-    2: [1, 4],
-    3: [1],
-    4: [2],
-    5: [6],
-    6: [5],
-    7: [8, 9],
-    8: [7, 9],
-    9: [7, 8]
-}))
-
-print(detectCycle(n=6, adj={
-    1: [2, 3],
-    2: [1, 4],
-    3: [1],
-    4: [2],
-    5: [6],
-    6: [5]
-}))
+print(detectCycle([[1], [2], [3], [4, 7], [5], [6], [], [5], [2, 9], [10], [8]]))
+print(detectCycle([[1], [2], [3], [4], [5], [6], []]))
