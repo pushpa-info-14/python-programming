@@ -6,11 +6,12 @@ class Solution:
         n = len(graph)
         visited = [False] * n
         path_visited = [False] * n
+        is_safe = [False] * n
 
         def dfs(node):
             visited[node] = True
             path_visited[node] = True
-
+            is_safe[node] = False
             for nei in graph[node]:
                 if not visited[nei]:
                     if not dfs(nei):
@@ -19,11 +20,15 @@ class Solution:
                     return False
 
             path_visited[node] = False
+            is_safe[node] = True
             return True
 
         res = []
         for i in range(n):
-            if dfs(i):
+            if not visited[i]:
+                dfs(i)
+        for i in range(n):
+            if is_safe[i]:
                 res.append(i)
         return res
 
