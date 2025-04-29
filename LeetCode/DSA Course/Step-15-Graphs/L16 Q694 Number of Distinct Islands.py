@@ -24,7 +24,6 @@ class Solution:
                 if not visited[i][j] and arr[i][j] == 1:
                     co = []
                     dfs(i, j, co, i, j)
-                    co.sort()
                     unique.add(tuple(co))
 
         return len(unique)
