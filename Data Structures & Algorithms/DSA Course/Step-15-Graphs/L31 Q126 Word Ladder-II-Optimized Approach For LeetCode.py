@@ -30,9 +30,9 @@ class Solution:
                                 q.append((new_word, level + 1))
                                 words.remove(new_word)
 
-        def dfs(word, elements):
+        def dfs(word, seq):
             if word == beginWord:
-                copy = elements.copy()
+                copy = seq.copy()
                 copy.reverse()
                 res.append(copy)
                 return
@@ -43,9 +43,9 @@ class Solution:
                     chars[i] = chr(j + ord('a'))
                     new_word = "".join(chars)
                     if new_word in level_map and level_map[new_word] + 1 == level:
-                        elements.append(new_word)
-                        dfs(new_word, elements)
-                        elements.pop()
+                        seq.append(new_word)
+                        dfs(new_word, seq)
+                        seq.pop()
 
         buildMap()
         dfs(endWord, [endWord])
