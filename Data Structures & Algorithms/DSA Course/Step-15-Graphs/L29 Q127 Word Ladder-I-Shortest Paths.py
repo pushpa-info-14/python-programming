@@ -7,7 +7,8 @@ class Solution:
         q = deque()
         q.append((beginWord, 1))
         words = set(wordList)
-
+        if beginWord in words:
+            words.remove(beginWord)
         while q:
             word, l = q.popleft()
             for i in range(len(word)):

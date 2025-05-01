@@ -7,9 +7,11 @@ class Solution:
         q = deque()
         q.append([beginWord])
         words = set(wordList)
+        if beginWord in words:
+            words.remove(beginWord)
         res = []
         while q:
-            used_on_level = set()
+            used_on_level = []
             for _ in range(len(q)):
                 path = q.popleft()
                 word = path[-1]
@@ -25,7 +27,7 @@ class Solution:
                         chars[i] = chr(j + ord('a'))
                         new_word = "".join(chars)
                         if new_word in words:
-                            used_on_level.add(new_word)
+                            used_on_level.append(new_word)
                             path_copy = path.copy()
                             path_copy.append(new_word)
                             q.append(path_copy)
