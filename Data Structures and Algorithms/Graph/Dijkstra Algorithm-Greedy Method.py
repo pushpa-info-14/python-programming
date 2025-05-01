@@ -1,3 +1,0 @@
-#
-# Single Source Shortest Path
-#
