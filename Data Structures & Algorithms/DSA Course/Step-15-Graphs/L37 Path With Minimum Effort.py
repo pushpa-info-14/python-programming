@@ -12,6 +12,8 @@ class Solution:
 
         while q:
             d, r, c = heapq.heappop(q)
+            if r == rows - 1 and c == columns - 1:
+                return d
             for dr, dc in directions:
                 nr = r + dr
                 nc = c + dc
@@ -22,7 +24,7 @@ class Solution:
                 if distance[nr][nc] > max_abs_diff:
                     distance[nr][nc] = max_abs_diff
                     heapq.heappush(q, (distance[nr][nc], nr, nc))
-        return distance[rows - 1][columns - 1]
+        return 0
 
 
 s = Solution()
