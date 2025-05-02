@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    def MinimumEffort(self, rows: int, columns: int, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        rows = len(heights)
+        columns = len(heights[0])
         int_max = 10 ** 9
         distance = [[int_max] * columns for _ in range(rows)]
         directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
@@ -28,5 +30,5 @@ class Solution:
 
 
 s = Solution()
-print(s.MinimumEffort(rows=3, columns=3, heights=[[1, 2, 2], [3, 8, 2], [5, 3, 5]]))
-print(s.MinimumEffort(rows=2, columns=2, heights=[[7, 7], [7, 7]]))
+print(s.minimumEffortPath(heights=[[1, 2, 2], [3, 8, 2], [5, 3, 5]]))
+print(s.minimumEffortPath(heights=[[7, 7], [7, 7]]))
