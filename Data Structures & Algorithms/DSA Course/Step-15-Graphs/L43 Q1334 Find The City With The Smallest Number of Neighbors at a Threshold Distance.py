@@ -26,7 +26,7 @@ class Solution:
                     count += 1
             if min_count >= count:
                 min_count = count
-                city = max(city, i)
+                city = i
 
         return city
 
