@@ -17,7 +17,7 @@ class Solution:
                     if adj[i][k] != inf and adj[k][j] != inf:
                         adj[i][j] = min(adj[i][j], adj[i][k] + adj[k][j])
 
-        min_count = inf
+        min_count = n
         city = 0
         for i in range(n):
             count = 0
