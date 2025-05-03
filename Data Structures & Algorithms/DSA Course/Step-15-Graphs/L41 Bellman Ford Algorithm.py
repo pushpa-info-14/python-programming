@@ -25,6 +25,8 @@ Dijkstra's algorithm cannot handle negative edges and cycles.
 
 Bellman Ford works on a directed graph.
 Relax all the edges n-1 times sequentially.
+
+TC O(VE)
 """
 
 print(shortestPath(6, [[3, 2, 6], [5, 3, 1], [0, 1, 5], [1, 5, -3], [1, 2, -2], [3, 4, -2], [2, 4, 3]], 0))
