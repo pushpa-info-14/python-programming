@@ -11,18 +11,22 @@ class Solution:
             graph[v].append((u, w))
 
         visited = [0] * n
-        q = [(0, 0)]  # w, node
+        q = [(0, 0, -1)]  # w, node
         summation = 0
+        mst = []
         while q:
-            w, node = heapq.heappop(q)
+            w, node, parent = heapq.heappop(q)
             if visited[node]:
                 continue
             summation += w
             visited[node] = 1
+            if parent != -1:
+                mst.append([parent, node])
             for nei, nei_w in graph[node]:
                 if not visited[nei]:
-                    heapq.heappush(q, (nei_w, nei))
+                    heapq.heappush(q, (nei_w, nei, node))
 
+        # print(mst)
         return summation
 
 
