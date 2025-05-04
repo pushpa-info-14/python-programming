@@ -4,6 +4,19 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    @staticmethod
+    def build(nums):
+        n = len(nums)
+        def dfs(i):
+            if i > n - 1 or nums[i] is None:
+                return None
+            node = TreeNode(nums[i])
+            node.left = dfs(2 * i + 1)
+            node.right = dfs(2 * i + 2)
+            return node
+        return dfs(0)
+
+
     def preorder_traversal(self):
         res = []
 
