@@ -3,27 +3,27 @@ from collections import deque
 from Common.TreeNode import TreeNode
 
 
-def levelOrder(node):
-    if node is None:
+def levelOrder(root):
+    if root is None:
         return
     res = []
     q = deque()
-    q.append(node)
+    q.append(root)
 
     while q:
         level = []
         for _ in range(len(q)):
-            element = q.popleft()
-            level.append(element.val)
-            if element.left:
-                q.append(element.left)
-            if element.right:
-                q.append(element.right)
+            node = q.popleft()
+            level.append(node.val)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
         res.append(level)
 
-    print(res)
+    return res
 
 
-root = TreeNode.build([1, 2, 3, 4, 5, 6, 7])
+tree = TreeNode.build([1, 2, 3, 4, 5, 6, 7])
 
-levelOrder(root)
+print(levelOrder(tree))

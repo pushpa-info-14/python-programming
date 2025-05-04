@@ -1,14 +1,14 @@
 from Common.TreeNode import TreeNode
 
 
-def preorder(node):
-    if node is None:
+def preorder(root):
+    if root is None:
         return
-    print(node.val)
-    preorder(node.left)
-    preorder(node.right)
+    print(root.val, end=' ')
+    preorder(root.left)
+    preorder(root.right)
 
 
-root = TreeNode.build([1, 2, 3, 4, 5, 6, 7])
+tree = TreeNode.build([1, 2, 3, 4, 5, 6, 7])
 
-preorder(root)
+preorder(tree)
