@@ -1,6 +1,6 @@
 class DisjointSet:
     def __init__(self, n):
-        self.size = [0] * (n + 1)
+        self.size = [1] * (n + 1)
         self.parent = list(range(n + 1))
 
     def findParent(self, x):
