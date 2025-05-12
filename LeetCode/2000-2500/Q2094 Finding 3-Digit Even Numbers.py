@@ -4,7 +4,6 @@ from typing import List
 
 class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
-        n = len(digits)
         unique_digits = sorted(set(digits))
         counter = Counter(digits)
         res = []
