@@ -32,7 +32,7 @@ class Solution:
         longest = [[0] * n for _ in range(26)]
         """
             longest: Table to store the count of each color from a given node
-            longest[i][j]=X: There are 'X' number of 'i' color nodes from current node 'j'
+            longest[i][j] = x: There are 'x' number of 'i' color nodes from current node 'j'
         """
         res = 0
         visited = [0] * n
