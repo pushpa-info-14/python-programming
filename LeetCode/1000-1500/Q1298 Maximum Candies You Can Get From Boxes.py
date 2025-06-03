@@ -7,42 +7,31 @@ class Solution:
                    initialBoxes: List[int]) -> int:
 
         profit = 0
-        q1 = deque()
-        q2 = deque()
+        q = deque()
+        closed = set()
         for node in initialBoxes:
             if status[node]:
-                q1.append(node)
+                q.append(node)
             else:
-                q2.append(node)
+                closed.add(node)
 
-        while q1:
-            node = q1.popleft()
+        while q:
+            node = q.popleft()
 
             for key in keys[node]:
                 status[key] = 1
+                if key in closed:
+                    q.append(key)
+                    closed.remove(key)
 
             profit += candies[node]
             candies[node] = 0
 
             for nei in containedBoxes[node]:
                 if status[nei]:
-                    q1.append(nei)
+                    q.append(nei)
                 else:
-                    q2.append(node)
-
-        while q2:
-            node = q2.popleft()
-
-            for key in keys[node]:
-                status[key] = 1
-
-            if status[node]:
-                profit += candies[node]
-                candies[node] = 0
-
-                for nei in containedBoxes[node]:
-                    if status[nei]:
-                        q2.append(nei)
+                    closed.add(nei)
 
         return profit
 
