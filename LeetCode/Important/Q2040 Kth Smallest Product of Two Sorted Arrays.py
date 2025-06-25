@@ -11,12 +11,12 @@ class Solution:
             smaller = 0
 
             for x in nums1:
-                if x < 0:
-                    smaller += n2 - bisect.bisect_left(nums2, ceil(target / x))
+                if x < 0: # lower bound reversed
+                    smaller += n2 - bisect.bisect_left(nums2, -(-target // x))
                 elif x == 0:
                     if target >= 0:
                         smaller += n2
-                else:
+                else: # upper bound
                     smaller += bisect.bisect_right(nums2, target // x)
             return smaller
 
