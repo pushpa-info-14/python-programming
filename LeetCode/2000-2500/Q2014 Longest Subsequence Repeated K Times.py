@@ -22,14 +22,15 @@ class Solution:
                 valid_characters.append(char)
 
         valid_characters.sort()
-        q = deque(valid_characters)
+        q = deque([''])
         res = ''
         while q:
-            cur = q.popleft()
-            res = cur
+            cur_seq = q.popleft()
             for c in valid_characters:
-                if count_subsequence(cur + c, s) >= k:
-                    q.append(cur + c)
+                next_seq = cur_seq + c
+                if count_subsequence(next_seq, s) >= k:
+                    res = next_seq
+                    q.append(next_seq)
         return res
 
 
