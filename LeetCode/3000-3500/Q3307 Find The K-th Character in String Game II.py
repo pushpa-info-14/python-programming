@@ -8,9 +8,9 @@ class Solution:
         steps = 0
 
         while val > 0:
-            p = int(log(val, 2))
-            lower = 1 << p
-            if operations[p]:
+            jump = int(log(val, 2))
+            lower = 1 << jump
+            if operations[jump]:
                 steps += 1
             val -= lower
         return chr(97 + (steps % 26))
