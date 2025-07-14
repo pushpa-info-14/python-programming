@@ -5,17 +5,11 @@ from Common.ListNode import ListNode
 
 class Solution:
     def getDecimalValue(self, head: Optional[ListNode]) -> int:
-        digits = []
+        res = 0
         cur = head
         while cur:
-            digits.append(cur.val)
+            res = (res << 1) + cur.val
             cur = cur.next
-        n = len(digits)
-        res = 0
-        power = 1
-        for i in range(n):
-            res += digits[n - i - 1] * power
-            power <<= 1
         return res
 
 
