@@ -59,9 +59,58 @@ class Solution:
 
         return res
 
+    def deleteDuplicateFolder2(self, paths: List[List[str]]) -> List[List[str]]:
+        tree = {"#": "/"}
+        for path in paths:
+            c_node = tree
+            for node in path:
+                if node not in c_node:
+                    c_node[node] = {"#": node}
+                c_node = c_node[node]
+
+        content_map = defaultdict(list)
+
+        def mark(c_node, parent):
+            if len(c_node) == 1:
+                return c_node["#"]
+
+            content = ""
+            for child in sorted(c_node[k]["#"] for k in c_node if k != "#"):
+                if child != "#":
+                    content += mark(c_node[child], c_node)
+            content_map[content].append((c_node["#"], parent))
+            return f'{c_node["#"]}({content})'
+
+        mark(tree, {})
+
+        for v in content_map.values():
+            if len(v) > 1:
+                for node, parent in v:
+                    del parent[node]
+
+        remaining_paths = []
+
+        def create_paths(c_node, c_path):
+            c_path = c_path + [c_node["#"]]
+            remaining_paths.append(c_path)
+
+            for child in c_node:
+                if child != "#":
+                    create_paths(c_node[child], c_path)
+
+        for k in tree:
+            if k != "#":
+                create_paths(tree[k], [])
+
+        return remaining_paths
+
 
 s = Solution()
 print(s.deleteDuplicateFolder(paths=[["a"], ["c"], ["d"], ["a", "b"], ["c", "b"], ["d", "a"]]))
 print(s.deleteDuplicateFolder(
     paths=[["a"], ["c"], ["a", "b"], ["c", "b"], ["a", "b", "x"], ["a", "b", "x", "y"], ["w"], ["w", "y"]]))
 print(s.deleteDuplicateFolder(paths=[["a", "b"], ["c", "d"], ["c"], ["a"]]))
+print(s.deleteDuplicateFolder2(paths=[["a"], ["c"], ["d"], ["a", "b"], ["c", "b"], ["d", "a"]]))
+print(s.deleteDuplicateFolder2(
+    paths=[["a"], ["c"], ["a", "b"], ["c", "b"], ["a", "b", "x"], ["a", "b", "x", "y"], ["w"], ["w", "y"]]))
+print(s.deleteDuplicateFolder2(paths=[["a", "b"], ["c", "d"], ["c"], ["a"]]))
