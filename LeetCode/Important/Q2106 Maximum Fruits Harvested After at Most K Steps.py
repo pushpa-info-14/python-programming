@@ -4,22 +4,22 @@ from typing import List
 
 class Solution:
     def maxTotalFruits(self, fruits: List[List[int]], startPos: int, k: int) -> int:
-        N = len(fruits)
+        n = len(fruits)
         start_index = bisect_left(fruits, [startPos, 0])
 
-        distances1 = []
-        total_fruits1 = []
-        for i in range(start_index, N):
+        distance_right = []
+        prefix_sum_right = []
+        for i in range(start_index, n):
             pos, fruit_count = fruits[i]
-            distances1.append(pos - startPos)
-            total_fruits1.append(fruit_count + (0 if not total_fruits1 else total_fruits1[-1]))
+            distance_right.append(pos - startPos)
+            prefix_sum_right.append(fruit_count + (0 if not prefix_sum_right else prefix_sum_right[-1]))
 
-        distances2 = []
-        total_fruits2 = []
+        distances_left = []
+        prefix_sum_left = []
         for i in range(start_index - 1, -1, -1):
             pos, fruit_count = fruits[i]
-            distances2.append(startPos - pos)
-            total_fruits2.append(fruit_count + (0 if not total_fruits2 else total_fruits2[-1]))
+            distances_left.append(startPos - pos)
+            prefix_sum_left.append(fruit_count + (0 if not prefix_sum_left else prefix_sum_left[-1]))
 
         def solve(d1, total1, d2, total2):
             best = 0
@@ -35,8 +35,8 @@ class Solution:
             return best
 
         return max(
-            solve(distances1, total_fruits1, distances2, total_fruits2),
-            solve(distances2, total_fruits2, distances1, total_fruits1))
+            solve(distance_right, prefix_sum_right, distances_left, prefix_sum_left),
+            solve(distances_left, prefix_sum_left, distance_right, prefix_sum_right))
 
 
 s = Solution()
