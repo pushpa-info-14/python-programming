@@ -1,0 +1,16 @@
+from typing import Optional
+
+from Common.TreeNode import TreeNode
+
+
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+
+tree = TreeNode.build([1, 2, 3, 4, 5, 6, 7])
+
+s = Solution()
+print(s.maxDepth(tree))
