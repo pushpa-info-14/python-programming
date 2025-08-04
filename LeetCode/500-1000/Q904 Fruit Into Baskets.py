@@ -1,16 +1,14 @@
+from collections import defaultdict
 from typing import List
 
 
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-
         n = len(fruits)
         l, r = 0, 0
         max_fruits = 0
-        types = {}
+        types = defaultdict(int)
         while r < n:
-            if fruits[r] not in types:
-                types[fruits[r]] = 0
             types[fruits[r]] += 1
 
             while len(types) > 2:
@@ -25,6 +23,7 @@ class Solution:
         return max_fruits
 
 
+# Max length of subarray with at most 2 unique numbers
 s = Solution()
 print(s.totalFruit([1, 2, 1]))
 print(s.totalFruit([0, 1, 2, 2]))
