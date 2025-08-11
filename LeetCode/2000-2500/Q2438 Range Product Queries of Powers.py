@@ -16,10 +16,7 @@ class Solution:
 
         res = []
         for start, end in queries:
-            if start == end:
-                res.append(powers[start] % mod)
-            else:
-                res.append((prefix_powers[end + 1] // prefix_powers[start]) % mod)
+            res.append((prefix_powers[end + 1] // prefix_powers[start]) % mod)
         return res
 
 
