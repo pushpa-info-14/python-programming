@@ -14,9 +14,6 @@ class Solution:
                 powers.append(x)
                 prefix_powers.append(prefix_powers[-1] * x)
 
-        # print(powers)
-        # print(prefix_powers)
-
         res = []
         for start, end in queries:
             if start == end:
