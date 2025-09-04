@@ -13,7 +13,7 @@ class Solution:
             nx, ny = x + dx, y + dy
             target = 2 if grid[x][y] in (0, 1) else 0
 
-            if nx < 0 or nx == n or ny < 0 or ny == m or grid[nx][ny] != target:
+            if nx < 0 or nx == m or ny < 0 or ny == n or grid[nx][ny] != target:
                 return 0
 
             no_turn = solver(nx, ny, dir_idx, can_turn)
