@@ -1,11 +1,9 @@
-with A as (
-    select
-        *,
-        dense_rank() over (order by salary desc) as rnk
-    from Employee
+WITH Ranked AS (
+    SELECT *, dense_rank() over (ORDER BY salary DESC) AS rnk FROM Employee
 )
 
-select iif(
-    (select count(*) from A where rnk = 2) = 0,
-    null,
-    (select top(1) salary from A where rnk = 2)) as SecondHighestSalary
+SELECT iif(
+    (SELECT COUNT(*) FROM Ranked WHERE rnk = 2) = 0,
+    NULL,
+    (SELECT top(1) salary FROM Ranked WHERE rnk = 2)
+) AS SecondHighestSalary
