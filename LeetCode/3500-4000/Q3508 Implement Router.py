@@ -16,11 +16,8 @@ class Router:
     def addPacket(self, source: int, destination: int, timestamp: int) -> bool:
         key = self.getKey(source, destination, timestamp)
         if key not in self._set:
-            if len(self._buffer) >= self._memory_limit:
-                packet = self._buffer.popleft()
-                should_remove_key = self.getKey(packet[0], packet[1], packet[2])
-                self._set.remove(should_remove_key)
-                self._destinations[packet[1]].popleft()
+            if len(self._buffer) == self._memory_limit:
+                self.forwardPacket()
             self._buffer.append([source, destination, timestamp])
             self._set.add(key)
             self._destinations[destination].append(timestamp)
