@@ -4,11 +4,9 @@ from typing import List
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
         nums.sort(reverse=True)
-        n = len(nums)
         res = 0
-        for i in range(n - 2):
-            a, b, c = nums[i], nums[i + 1], nums[i + 2]
-            if a + b > c and a + c > b and b + c > a:
+        for c, b, a in zip(nums, nums[1:], nums[2:]):
+            if a + b > c:
                 return a + b + c
         return res
 
