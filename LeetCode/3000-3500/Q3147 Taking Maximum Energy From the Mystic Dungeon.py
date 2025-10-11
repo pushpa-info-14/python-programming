@@ -7,10 +7,10 @@ class Solution:
         n = len(energy)
         res = -inf
         energy.reverse()
-        for start in range(k):
+        for i in range(k):
             total = 0
-            for i in range(start, n, k):
-                total += energy[i]
+            for j in range(i, n, k):
+                total += energy[j]
                 res = max(res, total)
         return res
 
