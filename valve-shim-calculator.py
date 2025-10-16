@@ -1,5 +1,8 @@
 import math
 
+def to_decimal(val, precision = 2):
+    fact = 1000 * 10 ** precision
+    return math.floor(val * fact) / fact
 
 class ValveShimCalculator:
     def __init__(self, readings, c_spec):
@@ -39,10 +42,10 @@ exhaust_readings = [
     [0.48, 2.52],
     [0.48, 2.47]
 ]
-intake = ValveShimCalculator(intake_readings, 0.32)  # 0.32 - 0.40
-exhaust = ValveShimCalculator(exhaust_readings, 0.37)  # 0.37 - 0.45
-res1 = intake.cal(ceil_to_even=True)
-res2 = exhaust.cal(ceil_to_even=True)
+intake = ValveShimCalculator(intake_readings, 0.30)  #      0.32 - 0.40 HOT, 0.25 - 0.33 COLD
+exhaust = ValveShimCalculator(exhaust_readings, 0.35)  #    0.37 - 0.45 HOT, 0.32 - 0.40 COLD
+res1 = intake.cal(True)
+res2 = exhaust.cal(True)
 res = res1 + res2
 res.sort()
 print("Intake :", res1)
@@ -61,6 +64,7 @@ print("Sorted Ext :", ext)
 
 matching = []
 required = []
+
 n = len(res)
 for i in range(n):
     found = False
@@ -72,5 +76,13 @@ for i in range(n):
             break
     if not found:
         required.append(res[i])
+ext = [shim for shim in ext if shim != 0]
 print("Matching:", matching)
 print("Required:", required)
+print("Not used:", ext)
+
+gap = []
+for i in range(len(required)):
+    gap.append(to_decimal(required[i] - ext[i]))
+    # gap.append(required[i] - ext[i])
+print("Gap     :", gap)
