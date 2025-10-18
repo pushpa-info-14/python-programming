@@ -16,10 +16,10 @@ class GreenHouseCalculator:
         return self.radius() * self.central_angle()
 
 
-cal = GreenHouseCalculator(3, 14)
+cal = GreenHouseCalculator(3, 12)
 print('R =', cal.radius())
 print('Arc Length =', cal.arc_length())
 
-cal = GreenHouseCalculator(9, 34)
+cal = GreenHouseCalculator(9, 32)
 print('R =', cal.radius())
 print('Arc Length =', cal.arc_length())
