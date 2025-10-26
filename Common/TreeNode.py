@@ -28,4 +28,5 @@ class TreeNode:
             dfs(node.left)
             dfs(node.right)
         dfs(self)
+        print(res)
         return res
