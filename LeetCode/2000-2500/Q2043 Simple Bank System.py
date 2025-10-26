@@ -7,9 +7,7 @@ class Bank:
         self._accounts = balance.copy()
 
     def transfer(self, account1: int, account2: int, money: int) -> bool:
-        if account1 > self._n or account2 > self._n:
-            return False
-        if self._accounts[account1 - 1] < money:
+        if account1 > self._n or account2 > self._n or self._accounts[account1 - 1] < money:
             return False
         self._accounts[account1 - 1] -= money
         self._accounts[account2 - 1] += money
@@ -22,9 +20,7 @@ class Bank:
         return True
 
     def withdraw(self, account: int, money: int) -> bool:
-        if account > self._n:
-            return False
-        if self._accounts[account - 1] < money:
+        if account > self._n or self._accounts[account - 1] < money:
             return False
         self._accounts[account - 1] -= money
         return True
