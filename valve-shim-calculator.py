@@ -42,8 +42,8 @@ exhaust_readings = [
     [0.48, 2.52],
     [0.48, 2.47]
 ]
-intake = ValveShimCalculator(intake_readings, 0.30)  #      0.32 - 0.40 HOT, 0.25 - 0.33 COLD
-exhaust = ValveShimCalculator(exhaust_readings, 0.35)  #    0.37 - 0.45 HOT, 0.32 - 0.40 COLD
+intake = ValveShimCalculator(intake_readings, 0.25)  #      0.32 - 0.40 HOT, 0.25 - 0.33 COLD
+exhaust = ValveShimCalculator(exhaust_readings, 0.32)  #    0.37 - 0.45 HOT, 0.32 - 0.40 COLD
 res1 = intake.cal(True)
 res2 = exhaust.cal(True)
 res = res1 + res2
@@ -86,3 +86,5 @@ for i in range(len(required)):
     gap.append(to_decimal(required[i] - ext[i]))
     # gap.append(required[i] - ext[i])
 print("Gap     :", gap)
+
+# OD 25mm
