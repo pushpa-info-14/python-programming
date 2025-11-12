@@ -3,18 +3,22 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        n = len(nums)
-        one_count = 0
-        for num in nums:
-            if num == 1:
-                one_count += 1
-        if one_count > 0:
-            return n - one_count
-
         def gcd(a, b):
             while b:
                 a, b = b, a % b
             return abs(a)
+
+        n = len(nums)
+        one_count = 0
+        cur_gcd = 0
+        for num in nums:
+            cur_gcd = gcd(cur_gcd, num)
+            if num == 1:
+                one_count += 1
+        if one_count > 0:
+            return n - one_count
+        if cur_gcd != 1:
+            return -1
 
         min_sub_len = 10 ** 10
         for l in range(n):
@@ -26,9 +30,6 @@ class Solution:
                 if cur_gcd == 1:
                     min_sub_len = r - l + 1
                     break
-
-        if min_sub_len == 10 ** 10:
-            return -1
         return min_sub_len - 1 + n - 1
 
 
