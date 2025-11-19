@@ -20,14 +20,15 @@ ROOT_DIRS = [
     "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Services.Tests",
     "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Tcp",
     "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Web",
-    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Common",
-    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Controllers",
-    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Models",
-    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Tests",
+    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Web.Common",
+    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Web.Controllers",
+    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Web.Models",
+    "C:\\Projects\\transvirtual-web-v1\\TransVirtual.Web.Tests",
 ]
 
 # Folder names to delete
 TARGET_FOLDERS = ["bin", "obj", ".vs"]
+
 
 def delete_folder(path):
     """Safely delete a folder and handle errors."""
@@ -36,6 +37,7 @@ def delete_folder(path):
         print(f"✅ Deleted: {path}")
     except Exception as e:
         print(f"⚠️ Failed to delete {path}: {e}")
+
 
 def clean_build_folders(root_dir):
     """Walk through the directory tree and delete target folders."""
@@ -46,6 +48,7 @@ def clean_build_folders(root_dir):
                 delete_folder(folder_path)
                 # Remove from traversal to prevent further walk
                 dirs.remove(folder)
+
 
 if __name__ == "__main__":
     for f in ROOT_DIRS:
