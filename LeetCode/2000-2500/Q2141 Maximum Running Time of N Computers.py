@@ -10,15 +10,13 @@ class Solution:
             return max_minutes >= n * target
 
         low, high = 0, sum(batteries) // n
-        res = high
         while low <= high:
             mid = (low + high) // 2
             if check(mid):
                 low = mid + 1
-                res = mid
             else:
                 high = mid - 1
-        return res
+        return high
 
 
 s = Solution()
