@@ -15,15 +15,15 @@ def reverse(x):
 class Solution:
     def minMirrorPairDistance(self, nums: List[int]) -> int:
         n = len(nums)
-        mp = defaultdict(list)
+        mp = defaultdict(int)
         res = math.inf
         for i in range(n):
             num = nums[i]
             if num in mp:
-                j = mp[num][-1]
+                j = mp[num]
                 res = min(res, abs(i - j))
             x = reverse(num)
-            mp[x].append(i)
+            mp[x] = i
         return res if res != math.inf else -1
 
 
