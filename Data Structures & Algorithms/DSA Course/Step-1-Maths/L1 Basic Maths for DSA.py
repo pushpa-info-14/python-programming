@@ -9,31 +9,31 @@
 # 1634 = 1³ + 6³ + 3³ + 4³
 
 # Print all divisors
-n = 36
+num = 36
 divisors = []
-for i in range(1, n + 1):
-    if n % i == 0:
+for i in range(1, num + 1):
+    if num % i == 0:
         divisors.append(i)
 print(divisors)
 
 divisors = []
-for i in range(1, int(n ** 0.5) + 1):
-    if n % i == 0:
+for i in range(1, int(num ** 0.5) + 1):
+    if num % i == 0:
         divisors.append(i)
-        if n // i != i:
-            divisors.append(n // i)
+        if num // i != i:
+            divisors.append(num // i)
 divisors.sort()
 print(divisors)
 
 # Prime number check
 # Exactly 2 factors 1 & number itself
 
-n = 7
+num = 7
 cnt = 0
-for i in range(1, int(n ** .5) + 1):
-    if n % i == 0:
+for i in range(1, int(num ** .5) + 1):
+    if num % i == 0:
         cnt += 1
-        if n // i != i:
+        if num // i != i:
             cnt += 1
 if cnt == 2:
     print("true")
@@ -57,12 +57,12 @@ print(ans)
 # a > b
 # gcd(a, b) = gcd(a % b, b)
 
-a = 40
-b = 20
 
-while a > 0 and b > 0:
-    if a > b:
-        a = a % b
-    else:
-        b = b % a
-print(max(a, b))
+def gcd(a, b):
+    while a and b:
+        a, b = b, a % b
+    return a
+
+print(gcd(40, 20))
+print(gcd(20, 40))
+print(gcd(2, 8))
