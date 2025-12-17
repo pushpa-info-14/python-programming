@@ -7,13 +7,13 @@ class Solution:
         return self.fib1(n - 2) + self.fib1(n - 1)
 
     def fib2(self, n: int) -> int:
-        cache = {0: 0, 1: 1}
+        memo = {0: 0, 1: 1}
 
         def fib(x):
-            if x in cache:
-                return cache[x]
-            cache[x] = fib(x - 2) + fib(x - 1)
-            return cache[x]
+            if x in memo:
+                return memo[x]
+            memo[x] = fib(x - 2) + fib(x - 1)
+            return memo[x]
 
         return fib(n)
 
