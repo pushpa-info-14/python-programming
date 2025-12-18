@@ -4,17 +4,16 @@
 #    Min of all stuffs -> Find min...
 #    Max of all stuffs -> Find max...
 
-def climb(n, dp=None):
-    if dp is None:
-        dp = {}
+def climb(n, memo=None):
+    if memo is None:
+        memo = {}
     if n == 0: return 0
     if n == 1: return 1
+    if n in memo:
+        return memo[n]
 
-    if n in dp:
-        return dp[n]
-
-    dp[n] = climb(n - 2, dp) + climb(n - 1, dp)
-    return dp[n]
+    memo[n] = climb(n - 2, memo) + climb(n - 1, memo)
+    return memo[n]
 
 print(climb(2))
 print(climb(5))
