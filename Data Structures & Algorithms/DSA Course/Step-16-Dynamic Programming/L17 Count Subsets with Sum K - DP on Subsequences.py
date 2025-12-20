@@ -28,7 +28,7 @@ def findWays(arr: List[int], k: int) -> int:
 
 
 def findWays2(arr: List[int], k: int) -> int:
-    arr.sort(reverse=True)
+    zeros = arr.count(0)
     n = len(arr)
     mod = 10 ** 9 + 7
     dp = [[0] * (k + 1) for _ in range(n)]
@@ -43,7 +43,10 @@ def findWays2(arr: List[int], k: int) -> int:
             if arr[i] <= cur:
                 take = dp[i - 1][cur - arr[i]]
             dp[i][cur] = take + not_take
-    return dp[n - 1][k] % mod
+    res = dp[n - 1][k]
+    if zeros:
+        res *= pow(2, zeros)
+    return res % mod
 
 
 """
