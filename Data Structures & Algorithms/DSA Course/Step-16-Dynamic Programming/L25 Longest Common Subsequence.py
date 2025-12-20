@@ -14,6 +14,7 @@ class Solution:
         return dp[0][0]
 
 
+# LeetCode 1143
 s = Solution()
 print(s.longestCommonSubsequence("abcde", "ace"))
 print(s.longestCommonSubsequence("abc", "abc"))

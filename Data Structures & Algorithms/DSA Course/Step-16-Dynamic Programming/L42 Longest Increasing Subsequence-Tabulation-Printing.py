@@ -64,8 +64,6 @@ def longestIncreasingSubsequencePrint(nums):
     return result[::-1]
 
 
-# Take it
-# Not take it
 print(longestIncreasingSubsequence([10, 9, 2, 5, 3, 7, 101, 18]))
 print(longestIncreasingSubsequenceSpaceOptimized([10, 9, 2, 5, 3, 7, 101, 18]))
 print(longestIncreasingSubsequenceTabulation([10, 9, 2, 5, 3, 7, 101, 18]))

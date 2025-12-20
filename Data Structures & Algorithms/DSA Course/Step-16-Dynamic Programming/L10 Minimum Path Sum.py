@@ -37,7 +37,7 @@ class Solution:
                 dp[r][c] = grid[r - 1][c - 1] + min(dp[r - 1][c], dp[r][c - 1])
         return dp[m][n]
 
-
+# LeetCode 64
 s = Solution()
 print(s.minPathSum(grid=[[1, 3, 1], [1, 5, 1], [4, 2, 1]]))
 print(s.minPathSum(grid=[[1, 2, 3], [4, 5, 6]]))

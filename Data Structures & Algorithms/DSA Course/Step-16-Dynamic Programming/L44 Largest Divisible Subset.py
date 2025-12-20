@@ -89,19 +89,20 @@ class Solution:
         return temp[::-1]
 
 
+# LeetCode 368
 s = Solution()
 print(s.largestDivisibleSubset([1, 16, 7, 8, 4]))
 print(s.largestDivisibleSubset([1, 2, 3]))
 print(s.largestDivisibleSubset([1, 2, 4, 8]))
-
+print("-----------------------------------------")
 print(s.largestDivisibleSubset2([1, 16, 7, 8, 4]))
 print(s.largestDivisibleSubset2([1, 2, 3]))
 print(s.largestDivisibleSubset2([1, 2, 4, 8]))
-
+print("-----------------------------------------")
 print(s.largestDivisibleSubset3([1, 16, 7, 8, 4]))
 print(s.largestDivisibleSubset3([1, 2, 3]))
 print(s.largestDivisibleSubset3([1, 2, 4, 8]))
-
+print("-----------------------------------------")
 print(s.largestDivisibleSubset4([1, 16, 7, 8, 4]))
 print(s.largestDivisibleSubset4([1, 2, 3]))
 print(s.largestDivisibleSubset4([1, 2, 4, 8]))

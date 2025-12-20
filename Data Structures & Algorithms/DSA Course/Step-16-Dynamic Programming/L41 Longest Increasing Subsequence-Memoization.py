@@ -31,7 +31,5 @@ def longestIncreasingSubsequenceMemo(nums):
     return dfs(0, -1)
 
 
-# Take it
-# Not take it
 print(longestIncreasingSubsequence([10, 9, 2, 5, 3, 7, 101, 18]))
 print(longestIncreasingSubsequenceMemo([10, 9, 2, 5, 3, 7, 101, 18]))

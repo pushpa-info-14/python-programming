@@ -34,6 +34,7 @@ class Solution:
         return ans[::-1]
 
 
+# LeetCode 1092
 s = Solution()
 print(s.shortestCommonSupersequence("abac", "cab"))
 print(s.shortestCommonSupersequence("aaaaaaaa", "aaaaaaaa"))

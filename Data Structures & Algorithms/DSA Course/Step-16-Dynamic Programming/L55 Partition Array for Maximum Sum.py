@@ -44,10 +44,12 @@ class Solution:
         return dp[0]
 
 
+# LeetCode 1043
 s = Solution()
 print(s.maxSumAfterPartitioning([1, 15, 7, 9, 2, 5, 10], 3))
 print(s.maxSumAfterPartitioning([1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3], 4))
 print(s.maxSumAfterPartitioning([1], 1))
+print("-----------------------------------------")
 print(s.maxSumAfterPartitioningTabulation([1, 15, 7, 9, 2, 5, 10], 3))
 print(s.maxSumAfterPartitioningTabulation([1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3], 4))
 print(s.maxSumAfterPartitioningTabulation([1], 1))
