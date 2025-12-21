@@ -91,4 +91,3 @@ for i in range(t):
     w = int(input())
     print(s.knapsack(w, vi, wi))
 """
-
