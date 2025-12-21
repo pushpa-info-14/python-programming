@@ -79,3 +79,16 @@ print(s.knapsack3(4, [1, 2, 3], [4, 5, 1]))
 print(s.knapsack3(3, [1, 2, 3], [4, 5, 6]))
 print(s.knapsack3(5, [10, 40, 30, 50], [5, 4, 2, 3]))
 print(s.knapsack3(7, [10, 8, 6], [1, 7, 9]))
+
+"""
+# For https://www.naukri.com/code360/problems/0-1-knapsack_920542?leftPanelTabValue=SUBMISSION
+
+t = int(input())
+for i in range(t):
+    n = int(input())
+    wi = list(map(int, input().split()))
+    vi = list(map(int, input().split()))
+    w = int(input())
+    print(s.knapsack(w, vi, wi))
+"""
+
