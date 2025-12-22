@@ -2,7 +2,6 @@ from typing import List
 
 
 def findWays(arr: List[int], k: int) -> int:
-    arr.sort(reverse=True)
     n = len(arr)
     mod = 10 ** 9 + 7
     memo = {}
@@ -10,13 +9,12 @@ def findWays(arr: List[int], k: int) -> int:
     def dfs(i, cur):
         if (i, cur) in memo:
             return memo[(i, cur)]
-        if cur == 0:
-            return 1
         if i == 0:
-            if arr[i] == cur:
+            if cur == 0 and arr[0] == 0:
+                return 2
+            if cur == 0 or cur == arr[0]:
                 return 1
-            else:
-                return 0
+            return 0
         not_take = dfs(i - 1, cur)
         take = 0
         if arr[i] <= cur:
@@ -28,25 +26,25 @@ def findWays(arr: List[int], k: int) -> int:
 
 
 def findWays2(arr: List[int], k: int) -> int:
-    zeros = arr.count(0)
     n = len(arr)
     mod = 10 ** 9 + 7
     dp = [[0] * (k + 1) for _ in range(n)]
-    for i in range(n):
-        dp[i][0] = 1
-    if arr[0] <= k:
+
+    if arr[0] == 0:
+        dp[0][0] = 2
+    else:
+        dp[0][0] = 1
+    if arr[0] != 0 and arr[0] <= k:
         dp[0][arr[0]] = 1
+
     for i in range(1, n):
-        for cur in range(1, k + 1):
+        for cur in range(k + 1):
             not_take = dp[i - 1][cur]
             take = 0
             if arr[i] <= cur:
                 take = dp[i - 1][cur - arr[i]]
             dp[i][cur] = take + not_take
-    res = dp[n - 1][k]
-    if zeros:
-        res *= pow(2, zeros)
-    return res % mod
+    return dp[n - 1][k] % mod
 
 
 """

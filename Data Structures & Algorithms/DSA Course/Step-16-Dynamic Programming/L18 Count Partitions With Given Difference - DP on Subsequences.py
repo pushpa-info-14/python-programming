@@ -2,15 +2,8 @@ from typing import List
 
 
 def countPartitions(n: int, d: int, arr: List[int]) -> int:
-    arr.sort(reverse=True)
     mod = 10 ** 9 + 7
     total = sum(arr)
-    """
-    s2 = total - s1
-    s1 - s2 = d
-    s1 - total + s1 = d
-    s1 = (total - d) // 2
-    """
     if (total - d) < 0 or (total - d) % 2:
         return 0
     k = (total - d) // 2
@@ -19,13 +12,12 @@ def countPartitions(n: int, d: int, arr: List[int]) -> int:
     def dfs(i, cur):
         if (i, cur) in memo:
             return memo[(i, cur)]
-        if cur == 0:
-            return 1
         if i == 0:
-            if arr[i] == cur:
+            if cur == 0 and arr[0] == 0:
+                return 2
+            if cur == 0 or cur == arr[0]:
                 return 1
-            else:
-                return 0
+            return 0
         not_take = dfs(i - 1, cur)
         take = 0
         if arr[i] <= cur:
@@ -37,7 +29,6 @@ def countPartitions(n: int, d: int, arr: List[int]) -> int:
 
 
 def countPartitions2(n: int, d: int, arr: List[int]) -> int:
-    arr.sort(reverse=True)
     mod = 10 ** 9 + 7
     total = sum(arr)
     if (total - d) < 0 or (total - d) % 2:
@@ -45,12 +36,15 @@ def countPartitions2(n: int, d: int, arr: List[int]) -> int:
     k = (sum(arr) - d) // 2
     dp = [[0] * (k + 1) for _ in range(n)]
 
-    for i in range(n):
-        dp[i][0] = 1
-    if arr[0] <= k:
+    if arr[0] == 0:
+        dp[0][0] = 2
+    else:
+        dp[0][0] = 1
+    if arr[0] != 0 and arr[0] <= k:
         dp[0][arr[0]] = 1
+
     for i in range(1, n):
-        for cur in range(1, k + 1):
+        for cur in range(k + 1):
             not_take = dp[i - 1][cur]
             take = 0
             if arr[i] <= cur:
@@ -60,6 +54,11 @@ def countPartitions2(n: int, d: int, arr: List[int]) -> int:
 
 
 """
+    s2 = total - s1
+    s1 - s2 = d
+    s1 - total + s1 = d
+    s1 = (total - d) // 2
+    
 https://www.naukri.com/code360/problems/partitions-with-given-difference_3751628
 
 Given an array ‘ARR’, partition it into two subsets (possibly empty) such that their union is the original array. 
