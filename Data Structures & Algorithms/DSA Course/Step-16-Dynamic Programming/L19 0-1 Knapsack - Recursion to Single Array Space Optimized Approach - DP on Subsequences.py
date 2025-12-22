@@ -50,6 +50,20 @@ class Solution:
             prev = cur
         return prev[w]
 
+    def knapsack4(self, w, val, wt):
+        n = len(val)
+        prev = [0] * (w + 1)
+        for weight in range(wt[0], w + 1):
+            prev[weight] = val[0]
+        for i in range(1, n):
+            for weight in range(w, -1, -1):
+                not_take = prev[weight]
+                take = 0
+                if wt[i] <= weight:
+                    take = val[i] + prev[weight - wt[i]]
+                prev[weight] = max(not_take, take)
+        return prev[w]
+
 
 """
 https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
@@ -79,6 +93,11 @@ print(s.knapsack3(4, [1, 2, 3], [4, 5, 1]))
 print(s.knapsack3(3, [1, 2, 3], [4, 5, 6]))
 print(s.knapsack3(5, [10, 40, 30, 50], [5, 4, 2, 3]))
 print(s.knapsack3(7, [10, 8, 6], [1, 7, 9]))
+print("---------------------------")
+print(s.knapsack4(4, [1, 2, 3], [4, 5, 1]))
+print(s.knapsack4(3, [1, 2, 3], [4, 5, 6]))
+print(s.knapsack4(5, [10, 40, 30, 50], [5, 4, 2, 3]))
+print(s.knapsack4(7, [10, 8, 6], [1, 7, 9]))
 
 """
 # For https://www.naukri.com/code360/problems/0-1-knapsack_920542?leftPanelTabValue=SUBMISSION
