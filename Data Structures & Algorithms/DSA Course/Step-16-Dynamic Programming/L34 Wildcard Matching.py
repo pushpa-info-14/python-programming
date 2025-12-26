@@ -1,5 +1,9 @@
+import re
+
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
+        p = re.sub(r'\*+', '*', p)
         m = len(s)
         n = len(p)
         memo = {}
@@ -13,10 +17,7 @@ class Solution:
             elif i >= 0 > j:
                 return False
             elif i < 0 <= j:
-                for x in range(j + 1):
-                    if p[x] != '*':
-                        return False
-                return True
+                return j == 0 and p[j] == '*'
 
             memo[(i, j)] = False
             if s[i] == p[j] or p[j] == '?':
@@ -27,7 +28,9 @@ class Solution:
 
         return dfs(m - 1, n - 1)
 
-    def isMatch2(self, s: str, p: str) -> bool:  # shifted by 1
+    def isMatch2(self, s: str, p: str) -> bool:
+        # shifted by 1
+        p = re.sub(r'\*+', '*', p)
         m = len(s)
         n = len(p)
         dp = [[-1] * (n + 1) for _ in range(m + 1)]
@@ -41,10 +44,7 @@ class Solution:
             elif j == 0 < i:
                 return False
             elif i == 0 < j:
-                for x in range(1, j + 1):
-                    if p[x - 1] != '*':
-                        return False
-                return True
+                return j == 1 and p[j - 1] == '*'
 
             dp[i][j] = False
             if s[i - 1] == p[j - 1] or p[j - 1] == '?':
@@ -56,6 +56,7 @@ class Solution:
         return dfs(m, n)
 
     def isMatch3(self, s: str, p: str) -> bool:
+        p = re.sub(r'\*+', '*', p)
         m = len(s)
         n = len(p)
         dp = [[False] * (n + 1) for _ in range(m + 1)]
@@ -63,12 +64,7 @@ class Solution:
         for i in range(1, m + 1):
             dp[i][0] = False
         for j in range(1, n + 1):
-            flag = True
-            for x in range(1, j + 1):
-                if p[x - 1] != '*':
-                    flag = False
-                    break
-            dp[0][j] = flag
+            dp[0][j] = j == 1 and p[j - 1] == '*'
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 if s[i - 1] == p[j - 1] or p[j - 1] == '?':
@@ -78,17 +74,13 @@ class Solution:
         return dp[m][n]
 
     def isMatch4(self, s: str, p: str) -> bool:
+        p = re.sub(r'\*+', '*', p)
         m = len(s)
         n = len(p)
         prev = [False] * (n + 1)
         prev[0] = True
         for j in range(1, n + 1):
-            flag = True
-            for x in range(1, j + 1):
-                if p[x - 1] != '*':
-                    flag = False
-                    break
-            prev[j] = flag
+            prev[j] = j == 1 and p[j - 1] == '*'
         for i in range(1, m + 1):
             cur = [False] * (n + 1)
             cur[0] = False
