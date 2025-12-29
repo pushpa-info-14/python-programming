@@ -5,17 +5,16 @@ from typing import List
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
         result = 0
-        l, r = 0, len(grid[0])
+        l, r = 0, len(grid[0]) - 1
         for i in range(len(grid)):
             l = 0
-            while l < r:
+            while l <= r:
                 mid = (l + r) // 2
                 if grid[i][mid] < 0:
-                    r = mid
+                    r = mid - 1
                 else:
                     l = mid + 1
-            result += (len(grid[0]) - r)
-
+            result += (len(grid[0]) - l)
         return result
 
     def countNegatives2(self, grid: List[List[int]]) -> int:
