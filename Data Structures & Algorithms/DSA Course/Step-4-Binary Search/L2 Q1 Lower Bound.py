@@ -1,7 +1,6 @@
 def find_lower_bound(nums, target):
     n = len(nums)
-    low = 0
-    high = n - 1
+    low, high = 0, n - 1
     res = n
     while low <= high:
         mid = (low + high) // 2
