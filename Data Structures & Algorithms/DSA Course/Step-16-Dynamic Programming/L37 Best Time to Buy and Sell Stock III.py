@@ -48,6 +48,23 @@ class Solution:
             ahead = cur
         return ahead[1][2]
 
+    def maxProfit4(self, prices: List[int]) -> int:
+        n = len(prices)
+        memo = {}
+
+        def dfs(i, transaction):
+            if (i, transaction) in memo:
+                return memo[(i, transaction)]
+            if i == n or transaction == 0:
+                return 0
+            if transaction % 2 == 0:  # buy
+                memo[(i, transaction)] = max(dfs(i + 1, transaction), - prices[i] + dfs(i + 1, transaction - 1))
+            else:
+                memo[(i, transaction)] = max(dfs(i + 1, transaction), prices[i] + dfs(i + 1, transaction - 1))
+            return memo[(i, transaction)]
+
+        return dfs(0, 4)
+
 
 # LeetCode 123
 s = Solution()
@@ -62,3 +79,7 @@ print("------------------------")
 print(s.maxProfit3(prices=[3, 3, 5, 0, 0, 3, 1, 4]))
 print(s.maxProfit3(prices=[1, 2, 3, 4, 5]))
 print(s.maxProfit3(prices=[7, 6, 4, 3, 1]))
+print("------------------------")
+print(s.maxProfit4(prices=[3, 3, 5, 0, 0, 3, 1, 4]))
+print(s.maxProfit4(prices=[1, 2, 3, 4, 5]))
+print(s.maxProfit4(prices=[7, 6, 4, 3, 1]))
