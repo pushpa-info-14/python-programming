@@ -4,15 +4,15 @@ def longestIncreasingSubsequence(nums):
 
     for index in range(n - 1, -1, -1):
         for prev_index in range(index - 1, -2, -1):
-            length = 0 + dp[index + 1][prev_index + 1]  # Not take
+            cur = 0 + dp[index + 1][prev_index + 1]  # Not take
             if prev_index == -1 or nums[index] > nums[prev_index]:
-                length = max(length, 1 + dp[index + 1][index + 1])
-            dp[index][prev_index + 1] = length
+                cur = max(cur, 1 + dp[index + 1][index + 1])
+            dp[index][prev_index + 1] = cur
 
     return dp[0][-1 + 1]
 
 
-def longestIncreasingSubsequenceSpaceOptimized(nums):
+def longestIncreasingSubsequence2(nums):
     n = len(nums)
     nxt = [0] * (n + 1)
     cur = [0] * (n + 1)
@@ -27,7 +27,7 @@ def longestIncreasingSubsequenceSpaceOptimized(nums):
     return cur[-1 + 1]
 
 
-def longestIncreasingSubsequenceTabulation(nums):
+def longestIncreasingSubsequence3(nums):
     n = len(nums)
     dp = [1] * n
     res = 0
@@ -40,7 +40,7 @@ def longestIncreasingSubsequenceTabulation(nums):
     return res
 
 
-def longestIncreasingSubsequencePrint(nums):
+def longestIncreasingSubsequence4(nums):
     n = len(nums)
     dp = [1] * n
     mp = [0] * n
@@ -65,6 +65,6 @@ def longestIncreasingSubsequencePrint(nums):
 
 
 print(longestIncreasingSubsequence([10, 9, 2, 5, 3, 7, 101, 18]))
-print(longestIncreasingSubsequenceSpaceOptimized([10, 9, 2, 5, 3, 7, 101, 18]))
-print(longestIncreasingSubsequenceTabulation([10, 9, 2, 5, 3, 7, 101, 18]))
-print(longestIncreasingSubsequencePrint([10, 9, 2, 5, 3, 7, 101, 18]))
+print(longestIncreasingSubsequence2([10, 9, 2, 5, 3, 7, 101, 18]))
+print(longestIncreasingSubsequence3([10, 9, 2, 5, 3, 7, 101, 18]))
+print(longestIncreasingSubsequence4([10, 9, 2, 5, 3, 7, 101, 18]))
