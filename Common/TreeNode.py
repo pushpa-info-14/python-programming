@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -7,14 +10,28 @@ class TreeNode:
     @staticmethod
     def build(nums):
         n = len(nums)
-        def dfs(i):
-            if i > n - 1 or nums[i] is None:
-                return None
-            node = TreeNode(nums[i])
-            node.left = dfs(2 * i + 1)
-            node.right = dfs(2 * i + 2)
-            return node
-        return dfs(0)
+        if not nums or nums[0] is None:
+            return None
+        root = TreeNode(nums[0])
+        queue = deque([root])
+        i = 1
+
+        while queue and i < n:
+            node = queue.popleft()
+
+            # Left child
+            if i < n and nums[i] is not None:
+                node.left = TreeNode(nums[i])
+                queue.append(node.left)
+            i += 1
+
+            # Right child
+            if i < n and nums[i] is not None:
+                node.right = TreeNode(nums[i])
+                queue.append(node.right)
+            i += 1
+
+        return root
 
 
     def preorder_traversal(self):
