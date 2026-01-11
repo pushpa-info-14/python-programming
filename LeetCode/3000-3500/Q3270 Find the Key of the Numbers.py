@@ -16,7 +16,7 @@ class Solution:
         digits3 = get_digits(num3)
         for i in range(4):
             key *= 10
-            key += min(digits1[i], digits2[i],digits3[i])
+            key += min(digits1[i], digits2[i], digits3[i])
         return key
 
 

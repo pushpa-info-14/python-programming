@@ -53,6 +53,7 @@ class Solution:
                 res = max(res, freq[x] + min(numOperations, count - freq[x]))
         return res
 
+
 s = Solution()
 print(s.maxFrequency(nums=[1, 4, 5], k=1, numOperations=2))  # 2
 print(s.maxFrequency(nums=[5, 11, 20, 20], k=5, numOperations=1))  # 2

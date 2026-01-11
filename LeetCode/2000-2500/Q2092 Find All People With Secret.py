@@ -79,6 +79,7 @@ class Solution:
             res.add(y)
         return list(res)
 
+
 s = Solution()
 print(s.findAllPeople(n=6, meetings=[[1, 2, 5], [2, 3, 8], [1, 5, 10]], firstPerson=1))
 print(s.findAllPeople(n=4, meetings=[[3, 1, 3], [1, 2, 2], [0, 3, 3]], firstPerson=3))

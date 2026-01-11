@@ -16,7 +16,7 @@ class Solution:
             all_odds.append(''.join(map(str, ((d + i * a) % 10 for d in odds))))
 
         all_evens = [str_evens]
-        if b & 1: # If b is odd, even indices will get a chance to increment by a
+        if b & 1:  # If b is odd, even indices will get a chance to increment by a
             for i in range(10):
                 all_evens.append(''.join(map(str, ((d + i * a) % 10 for d in evens))))
         res = s

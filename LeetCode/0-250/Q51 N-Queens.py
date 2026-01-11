@@ -34,6 +34,7 @@ class Solution:
         backtrack(0)
         return res
 
+
 s = Solution()
 print(s.solveNQueens(4))
 print(s.solveNQueens(1))

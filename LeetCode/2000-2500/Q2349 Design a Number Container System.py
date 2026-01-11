@@ -1,5 +1,6 @@
 import heapq
 from collections import defaultdict
+
 from sortedcontainers import SortedSet
 
 
@@ -23,6 +24,7 @@ class NumberContainers:
             return self.number_to_indices[number][0]
         else:
             return -1
+
 
 class NumberContainers2:
 

@@ -24,4 +24,4 @@ class Solution:
 s = Solution()
 print(s.largestTriangleArea(points=[[0, 0], [0, 1], [1, 0], [0, 2], [2, 0]]))
 print(s.largestTriangleArea(points=[[1, 0], [0, 0], [0, 1]]))
-print(s.largestTriangleArea(points=[[8,10],[2,7],[9,2],[4,10]]))
+print(s.largestTriangleArea(points=[[8, 10], [2, 7], [9, 2], [4, 10]]))

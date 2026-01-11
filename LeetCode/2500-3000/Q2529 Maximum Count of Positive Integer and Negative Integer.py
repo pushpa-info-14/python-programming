@@ -15,8 +15,9 @@ class Solution:
 
     def maximumCount2(self, nums: List[int]) -> int:
         n = len(nums)
+
         def find_left(target):
-            l,r = 0, n - 1
+            l, r = 0, n - 1
             while l <= r:
                 mid = (l + r) // 2
                 if nums[mid] < target:
@@ -24,6 +25,7 @@ class Solution:
                 else:
                     r = mid - 1
             return l
+
         first_non_negative = find_left(0)
         first_positive = find_left(1)
         neg = first_non_negative

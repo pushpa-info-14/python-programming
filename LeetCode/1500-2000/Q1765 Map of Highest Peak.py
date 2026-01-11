@@ -62,6 +62,7 @@ class Solution:
                 q.append((newX, newY))
         return result
 
+
 s = Solution()
 print(s.highestPeak([[0, 1], [0, 0]]))
 print(s.highestPeak([[0, 0, 1], [1, 0, 0], [0, 0, 0]]))

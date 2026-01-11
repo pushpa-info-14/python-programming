@@ -29,6 +29,7 @@ class Solution:
 
         return res
 
+
 s = Solution()
-print(s.minimumTeachings(n = 2, languages = [[1],[2],[1,2]], friendships = [[1,2],[1,3],[2,3]]))
-print(s.minimumTeachings(n = 3, languages = [[2],[1,3],[1,2],[3]], friendships = [[1,4],[1,2],[3,4],[2,3]]))
+print(s.minimumTeachings(n=2, languages=[[1], [2], [1, 2]], friendships=[[1, 2], [1, 3], [2, 3]]))
+print(s.minimumTeachings(n=3, languages=[[2], [1, 3], [1, 2], [3]], friendships=[[1, 4], [1, 2], [3, 4], [2, 3]]))

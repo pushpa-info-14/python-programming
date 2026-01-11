@@ -16,7 +16,6 @@ class Solution:
         return chr(word[k - 1] % 26 + ord('a'))
 
 
-
 s = Solution()
 print(s.kthCharacter(5))
 print(s.kthCharacter(10))

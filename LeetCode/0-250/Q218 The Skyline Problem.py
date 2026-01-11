@@ -6,7 +6,7 @@ class Solution:
     def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
         points = []
         for building in buildings:
-            start,end,height = building
+            start, end, height = building
             points.append((start, -height))
             points.append((end, height))
         points.sort()

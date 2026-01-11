@@ -11,7 +11,7 @@ class Solution:
 
         for r in range(m):
             for c in range(n):
-                row_min[r] = min(row_min[r] , matrix[r][c])
+                row_min[r] = min(row_min[r], matrix[r][c])
                 col_max[c] = max(col_max[c], matrix[r][c])
 
         res = []

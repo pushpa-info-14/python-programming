@@ -14,7 +14,7 @@ class Solution:
                     total += temp.val
                     temp = temp.next
                 cur.val = total
-                if not temp.next: # avoid last 0
+                if not temp.next:  # avoid last 0
                     cur.next = None
                 else:
                     cur.next = temp

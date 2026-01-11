@@ -16,6 +16,7 @@ class Solution:
                     res += dfs()
                     count[c] += 1
             return res
+
         return dfs()
 
 

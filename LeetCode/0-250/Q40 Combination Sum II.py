@@ -29,6 +29,7 @@ class Solution:
         backtrack(0, target)
         return res
 
-s =Solution()
-print(s.combinationSum2([10,1,2,7,6,1,5],8))
-print(s.combinationSum2([2,5,2,1,2],5))
+
+s = Solution()
+print(s.combinationSum2([10, 1, 2, 7, 6, 1, 5], 8))
+print(s.combinationSum2([2, 5, 2, 1, 2], 5))

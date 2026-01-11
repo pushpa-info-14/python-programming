@@ -6,6 +6,7 @@ class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
         m = len(strs[0])
         inf = 10 ** 9
+
         @cache
         def dfs(i, prev):
             if i == m:

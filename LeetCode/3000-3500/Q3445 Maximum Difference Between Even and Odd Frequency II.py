@@ -30,7 +30,8 @@ class Solution:
 
         return ans
 
+
 s = Solution()
-print(s.maxDifference(s = "12233", k = 4))
-print(s.maxDifference(s = "1122211", k = 3))
-print(s.maxDifference(s = "110", k = 3))
+print(s.maxDifference(s="12233", k=4))
+print(s.maxDifference(s="1122211", k=3))
+print(s.maxDifference(s="110", k=3))

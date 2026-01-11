@@ -21,7 +21,8 @@ class Solution:
 
         return grid
 
+
 s = Solution()
-print(s.sortMatrix(grid = [[1,7,3],[9,8,2],[4,5,6]]))
-print(s.sortMatrix(grid = [[0,1],[1,2]]))
-print(s.sortMatrix(grid = [[1]]))
+print(s.sortMatrix(grid=[[1, 7, 3], [9, 8, 2], [4, 5, 6]]))
+print(s.sortMatrix(grid=[[0, 1], [1, 2]]))
+print(s.sortMatrix(grid=[[1]]))

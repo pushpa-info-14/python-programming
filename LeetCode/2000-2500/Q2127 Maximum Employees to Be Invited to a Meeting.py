@@ -90,6 +90,7 @@ class Solution:
 
         return max(longest_cycle, two_cycle_invitations)
 
+
 s = Solution()
 print(s.maximumInvitations([2, 2, 1, 2]))
 print(s.maximumInvitations([1, 2, 0]))

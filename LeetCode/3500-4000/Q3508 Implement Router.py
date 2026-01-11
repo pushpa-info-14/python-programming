@@ -2,6 +2,7 @@ import bisect
 from collections import deque, defaultdict
 from typing import List
 
+
 class Router:
     def __init__(self, memoryLimit: int):
         self._set = set()

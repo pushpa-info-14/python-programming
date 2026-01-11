@@ -1,6 +1,6 @@
 class Solution:
     def possibleStringCount(self, word: str, k: int) -> int:
-        mod = 10**9 + 7
+        mod = 10 ** 9 + 7
         n, cnt = len(word), 1
         freq = list()
 

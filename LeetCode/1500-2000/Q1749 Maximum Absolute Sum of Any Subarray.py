@@ -4,7 +4,7 @@ from typing import List
 
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
-        min_sum , max_sum = 0, 0
+        min_sum, max_sum = 0, 0
         cur = 0
         res = 0
 

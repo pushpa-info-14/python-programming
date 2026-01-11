@@ -12,7 +12,7 @@ class Solution:
         for num in nums:
             if num % modulo == k:
                 prefix_count += 1
-            prefix_count %= modulo # To maintain value between 0 - modulo - 1
+            prefix_count %= modulo  # To maintain value between 0 - modulo - 1
             rem = (prefix_count - k + modulo) % modulo
             if rem in freq:
                 res += freq[rem]

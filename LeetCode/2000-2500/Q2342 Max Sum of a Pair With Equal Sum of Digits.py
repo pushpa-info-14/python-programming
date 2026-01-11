@@ -47,6 +47,7 @@ class Solution:
             previous_max[cur] = max(previous_max[cur], nums[i])
         return res
 
+
 s = Solution()
 print(s.maximumSum([18, 43, 36, 13, 7]))
 print(s.maximumSum([10, 12, 19, 14]))

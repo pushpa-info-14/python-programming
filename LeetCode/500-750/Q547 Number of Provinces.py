@@ -30,7 +30,7 @@ class Solution:
                 if isConnected[i][j]:
                     union(i, j)
 
-        res= 0
+        res = 0
         for i in range(n):
             if par[i] == i:
                 res += 1
@@ -46,7 +46,7 @@ class Solution:
                 return
             visited[node] = True
             for nei in range(n):
-                if isConnected[node][nei] and not visited[nei] :
+                if isConnected[node][nei] and not visited[nei]:
                     dfs(nei)
 
         for i in range(n):
@@ -54,6 +54,7 @@ class Solution:
                 provinces += 1
                 dfs(i)
         return provinces
+
 
 s = Solution()
 print(s.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))

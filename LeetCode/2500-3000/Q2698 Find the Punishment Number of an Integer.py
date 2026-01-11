@@ -35,9 +35,9 @@ class Solution:
             if num == target:
                 return True
             return (
-                find_partition(num // 10, target - num % 10) or
-                find_partition(num // 100, target - num % 100) or
-                find_partition(num // 1000, target - num % 1000)
+                    find_partition(num // 10, target - num % 10) or
+                    find_partition(num // 100, target - num % 100) or
+                    find_partition(num // 1000, target - num % 1000)
             )
 
         res = 0
@@ -47,6 +47,7 @@ class Solution:
             if find_partition(p, i):
                 res += p
         return res
+
 
 s = Solution()
 print(s.punishmentNumber(10))

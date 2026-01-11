@@ -35,10 +35,10 @@ class Solution:
         dp = [[0] * (n + 1) for _ in range(m + 1)]
 
         res = 0
-        for r in  range(m - 1, -1, -1):
-            for c in  range(n - 1, -1, -1):
+        for r in range(m - 1, -1, -1):
+            for c in range(n - 1, -1, -1):
                 if matrix[r][c]:
-                    dp[r][c] = 1 + min(dp[r][c + 1], dp[r + 1][c], dp[r+1][c+1])
+                    dp[r][c] = 1 + min(dp[r][c + 1], dp[r + 1][c], dp[r + 1][c + 1])
                     res += dp[r][c]
 
         return res

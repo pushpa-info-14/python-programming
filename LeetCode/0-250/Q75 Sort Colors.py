@@ -44,6 +44,7 @@ class Solution:
 
         print(nums)
 
+
 s = Solution()
 print(s.sortColors([2, 0, 2, 1, 1, 0]))
 print(s.sortColors2([2, 0, 2, 1, 1, 0]))
