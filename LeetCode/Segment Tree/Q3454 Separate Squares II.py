@@ -36,8 +36,8 @@ class Solution:
         events = []
         xs_set = set()
         for x, y, l in squares:
-            events.append((y, 1, x, x + l))  # Add segment
-            events.append((y + l, -1, x, x + l))  # Remove segment
+            events.append((y, 1, x, x + l)) # Add segment
+            events.append((y + l, -1, x, x + l)) # Remove segment
             xs_set.update([x, x + l])
         xs = sorted(xs_set)
 
