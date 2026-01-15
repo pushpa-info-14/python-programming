@@ -25,9 +25,10 @@ class SegmentTree:
     def _update(self, node, start, end, l, r, val):
         self._push(node, start, end)
 
+        # No overlap [l r start end] [start end l r]
         if r < start or end < l:
             return
-
+        # Complete overlap [l start end r]
         if l <= start and end <= r:
             self.lazy[node] += val
             self._push(node, start, end)
