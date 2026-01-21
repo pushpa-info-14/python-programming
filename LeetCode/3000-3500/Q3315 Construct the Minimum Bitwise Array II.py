@@ -33,7 +33,21 @@ class Solution:
                 res.append(int(''.join(digits), 2))
         return res
 
+    def minBitwiseArray2(self, nums: List[int]) -> List[int]:
+        res = []
+        for num in nums:
+            cur = -1
+            pos = 0
+            while num & (1 << pos) != 0:
+                cur = num ^ (1 << pos)
+                pos += 1
+            res.append(cur)
+        return res
+
 
 s = Solution()
 print(s.minBitwiseArray(nums=[2, 3, 5, 7]))
 print(s.minBitwiseArray(nums=[11, 13, 31]))
+print("---------------")
+print(s.minBitwiseArray2(nums=[2, 3, 5, 7]))
+print(s.minBitwiseArray2(nums=[11, 13, 31]))
