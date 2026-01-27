@@ -29,6 +29,7 @@ class Solution:
         return 0
 
 
+# LeetCode 1631
 s = Solution()
 print(s.minimumEffortPath(heights=[[1, 2, 2], [3, 8, 2], [5, 3, 5]]))
 print(s.minimumEffortPath(heights=[[7, 7], [7, 7]]))

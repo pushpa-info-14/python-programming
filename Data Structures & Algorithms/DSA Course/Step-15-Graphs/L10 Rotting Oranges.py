@@ -38,6 +38,7 @@ class Solution:
         return res if fresh_count == 0 else -1
 
 
+# LeetCode 994
 s = Solution()
 print(s.orangesRotting(grid=[[2, 1, 1], [1, 1, 0], [0, 1, 1]]))
 print(s.orangesRotting(grid=[[2, 1, 1], [0, 1, 1], [1, 0, 1]]))

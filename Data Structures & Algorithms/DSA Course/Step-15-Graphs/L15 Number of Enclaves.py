@@ -37,6 +37,7 @@ class Solution:
         return res
 
 
+# LeetCode 1020
 s = Solution()
 print(s.numEnclaves(grid=[[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]))
 print(s.numEnclaves(grid=[[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 0, 0]]))

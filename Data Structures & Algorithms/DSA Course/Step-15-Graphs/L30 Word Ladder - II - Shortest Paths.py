@@ -38,6 +38,7 @@ class Solution:
         return res
 
 
+# LeetCode 126
 s = Solution()
 print(s.findLadders(beginWord="hit", endWord="cog", wordList=["hot", "dot", "dog", "lot", "log", "cog"]))
 print(s.findLadders(beginWord="hit", endWord="cog", wordList=["hot", "dot", "dog", "lot", "log"]))

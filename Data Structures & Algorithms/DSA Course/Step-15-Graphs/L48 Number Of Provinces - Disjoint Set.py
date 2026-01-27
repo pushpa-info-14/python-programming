@@ -24,27 +24,22 @@ class DisjointSet:
 
 
 class Solution:
-    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
         ds = DisjointSet(n)
 
-        extra_edges = 0
-        for u, v in connections:
-            if ds.findParent(u) == ds.findParent(v):
-                extra_edges += 1
-            else:
-                ds.union(u, v)
-
-        components = 0
+        for i in range(n):
+            for j in range(n):
+                if isConnected[i][j]:
+                    ds.union(i, j)
+        res = 0
         for i in range(n):
             if ds.findParent(i) == i:
-                components += 1
-
-        if extra_edges >= components - 1:
-            return components - 1
-        return -1
+                res += 1
+        return res
 
 
+# LeetCode 547
 s = Solution()
-print(s.makeConnected(n=4, connections=[[0, 1], [0, 2], [1, 2]]))
-print(s.makeConnected(n=6, connections=[[0, 1], [0, 2], [0, 3], [1, 2], [1, 3]]))
-print(s.makeConnected(n=6, connections=[[0, 1], [0, 2], [0, 3], [1, 2]]))
+print(s.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
+print(s.findCircleNum([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))

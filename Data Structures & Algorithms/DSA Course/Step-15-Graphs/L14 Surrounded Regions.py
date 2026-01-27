@@ -39,6 +39,7 @@ class Solution:
         print(board)
 
 
+# LeetCode 130
 s = Solution()
 s.solve(board=[["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]])
 s.solve(board=[["X"]])

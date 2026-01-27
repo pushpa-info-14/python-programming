@@ -51,6 +51,7 @@ class Solution:
         return res
 
 
+# LeetCode 721
 s = Solution()
 print(s.accountsMerge(accounts=[["John", "johnsmith@mail.com", "john_newyork@mail.com"],
                                 ["John", "johnsmith@mail.com", "john00@mail.com"],

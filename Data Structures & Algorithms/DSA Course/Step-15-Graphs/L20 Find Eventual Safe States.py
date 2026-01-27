@@ -33,6 +33,7 @@ class Solution:
         return res
 
 
+# LeetCode 802
 s = Solution()
 print(s.eventualSafeNodes(graph=[[1, 2], [2, 3], [5], [0], [5], [], []]))
 print(s.eventualSafeNodes(graph=[[1, 2, 3, 4], [1, 2], [3, 4], [0, 4], []]))

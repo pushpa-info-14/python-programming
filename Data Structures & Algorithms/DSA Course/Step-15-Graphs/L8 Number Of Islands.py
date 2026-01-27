@@ -28,6 +28,7 @@ class Solution:
         return res
 
 
+# LeetCode 200
 s = Solution()
 print(s.numIslands(grid=[
     ["1", "1", "1", "1", "0"],

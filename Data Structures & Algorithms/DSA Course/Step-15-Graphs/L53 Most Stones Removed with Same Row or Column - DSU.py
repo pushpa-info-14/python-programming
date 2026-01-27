@@ -48,6 +48,7 @@ class Solution:
         return len(stones) - count
 
 
+# LeetCode 947
 s = Solution()
 print(s.removeStones(stones=[[0, 0], [0, 1], [1, 0], [1, 2], [2, 1], [2, 2]]))
 print(s.removeStones(stones=[[0, 0], [0, 2], [1, 1], [2, 0], [2, 2]]))
