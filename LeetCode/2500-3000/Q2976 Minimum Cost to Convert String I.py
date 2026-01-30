@@ -1,35 +1,36 @@
 import heapq
 from collections import defaultdict
-from functools import cache
 from typing import List
 
 
 class Solution:
     def minimumCost(self, source: str, target: str, original: List[str], changed: List[str], cost: List[int]) -> int:
+        inf = 10 ** 10
         adj = defaultdict(list)
         for i in range(len(original)):
-            adj[original[i]].append((changed[i], cost[i]))
+            adj[ord(original[i]) - ord("a")].append((ord(changed[i]) - ord("a"), cost[i]))
 
-        @cache
-        def bfs(s, t):
-            visited = {s}
+        def dijkstra(s):
+            d = [inf] * 26
+            d[s] = 0
             q = [(0, s)]
             while q:
                 dist, node = heapq.heappop(q)
-                visited.add(node)
-                if node == t:
-                    return dist
                 for nei, w in adj[node]:
-                    if nei not in visited:
+                    if dist + w < d[nei]:
+                        d[nei] = dist + w
                         heapq.heappush(q, (dist + w, nei))
-            return -1
+            return d
+
+        min_costs = [dijkstra(i) for i in range(26)]
 
         res = 0
         for i in range(len(source)):
-            cur = bfs(source[i], target[i])
-            if cur == -1:
+            s = ord(source[i]) - ord("a")
+            t = ord(target[i]) - ord("a")
+            if min_costs[s][t] == inf:
                 return -1
-            res += cur
+            res += min_costs[s][t]
         return res
 
 
