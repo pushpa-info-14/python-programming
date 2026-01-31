@@ -3,16 +3,16 @@ from typing import List
 
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        l, r = 0, len(letters)
-        while l < r:
+        l, r = 0, len(letters) - 1
+        while l <= r:
             mid = (l + r) // 2
             if letters[mid] <= target:
                 l = mid + 1
             else:
-                r = mid
-        if r == len(letters):
+                r = mid - 1
+        if l == len(letters):
             return letters[0]
-        return letters[r]
+        return letters[l]
 
 
 s = Solution()
