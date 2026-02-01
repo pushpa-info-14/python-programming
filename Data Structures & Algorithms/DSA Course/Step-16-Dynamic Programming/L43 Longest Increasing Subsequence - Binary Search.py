@@ -19,17 +19,17 @@ def lowerBound(arr, target):
 def longestIncreasingSubsequence(nums):
     n = len(nums)
     temp = [nums[0]]
-    l = 1
+    res = 1
 
     for i in range(1, n):
         if nums[i] > temp[-1]:
             temp.append(nums[i])
-            l += 1
+            res += 1
         else:
             idx = lowerBound(temp, nums[i])
             temp[idx] = nums[i]
     # return len(temp)
-    return l
+    return res
 
 
 print(lowerBound([1, 2, 3, 4, 7, 8], 2))
