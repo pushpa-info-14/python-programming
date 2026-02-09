@@ -33,7 +33,6 @@ class TreeNode:
 
         return root
 
-
     def preorder_traversal(self):
         res = []
 
@@ -44,6 +43,22 @@ class TreeNode:
             res.append(node.val)
             dfs(node.left)
             dfs(node.right)
+
+        dfs(self)
+        print(res)
+        return res
+
+    def inorder_traversal(self):
+        res = []
+
+        def dfs(node):
+            if node is None:
+                res.append(None)
+                return
+            dfs(node.left)
+            res.append(node.val)
+            dfs(node.right)
+
         dfs(self)
         print(res)
         return res
