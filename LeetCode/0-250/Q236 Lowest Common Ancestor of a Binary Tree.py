@@ -21,7 +21,6 @@ class Solution:
         return dfs(root)
 
 
-# LeetCode 236
 s = Solution()
 tree = TreeNode.build([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4])
 print(s.lowestCommonAncestor(tree, tree.left, tree.right).val)
