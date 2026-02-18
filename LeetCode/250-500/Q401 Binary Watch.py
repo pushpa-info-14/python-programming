@@ -3,7 +3,6 @@ from typing import List
 
 class Solution:
     def readBinaryWatch(self, turnedOn: int) -> List[str]:
-
         res = []
         for i in range(1024):
             bit_count = 0
@@ -24,8 +23,22 @@ class Solution:
                 res.append(t)
         return res
 
+    def readBinaryWatch2(self, turnedOn: int) -> List[str]:
+        res = []
+        for h in range(12):
+            for m in range(60):
+                if h.bit_count() + m.bit_count() == turnedOn:
+                    t = str(h) + ":"
+                    t += "0" + str(m) if m < 10 else str(m)
+                    res.append(t)
+        return res
+
 
 s = Solution()
 print(s.readBinaryWatch(1))
 print(s.readBinaryWatch(2))
 print(s.readBinaryWatch(9))
+print("----------------")
+print(s.readBinaryWatch2(1))
+print(s.readBinaryWatch2(2))
+print(s.readBinaryWatch2(9))
