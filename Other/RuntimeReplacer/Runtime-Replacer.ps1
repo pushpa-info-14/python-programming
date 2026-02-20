@@ -64,5 +64,5 @@ function Update-RuntimeBlock {
 
 # Example usage
 Update-RuntimeBlock `
-    -NewConfig "Host.exe-new.config" `
-    -TargetConfig "Host.exe.config"
+    -NewConfig "NewConfig/Host.exe-new.config" `
+    -TargetConfig "TargetConfig/Host.exe.config"
