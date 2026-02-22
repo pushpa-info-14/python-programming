@@ -1,12 +1,15 @@
 class Solution:
     def binaryGap(self, n: int) -> int:
         res = 0
-        cur = -1000
+        set_bits = 0
+        count = 0
         while n:
-            cur += 1
+            count += 1
             if n % 2:
-                res = max(res, cur)
-                cur = 0
+                set_bits += 1
+                if set_bits > 1:
+                    res = max(res, count)
+                count = 0
             n >>= 1
         return res
 
