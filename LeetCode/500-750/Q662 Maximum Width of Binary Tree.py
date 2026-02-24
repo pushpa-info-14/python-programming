@@ -20,7 +20,6 @@ class Solution:
         return res
 
 
-# LeetCode 662
 s = Solution()
 tree = TreeNode.build([1, 3, 2, 5, 3, None, 9])
 print(s.widthOfBinaryTree(tree))
