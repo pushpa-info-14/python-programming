@@ -20,6 +20,6 @@ cal = GreenHouseCalculator(3, 12)
 print('R =', cal.radius())
 print('Arc Length =', cal.arc_length())
 
-cal = GreenHouseCalculator(9, 32)
+cal = GreenHouseCalculator(7, 32)
 print('R =', cal.radius())
 print('Arc Length =', cal.arc_length())
