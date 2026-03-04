@@ -19,7 +19,8 @@ class Solution:
         # Final answer
         return s * pow_n % mod * geom % mod
 
+
 s = Solution()
-print(s.sumOfNumbers(l = 1, r = 2, k = 2))
-print(s.sumOfNumbers(l = 0, r = 1, k = 3))
-print(s.sumOfNumbers(l = 5, r = 5, k = 10))
+print(s.sumOfNumbers(l=1, r=2, k=2))
+print(s.sumOfNumbers(l=0, r=1, k=3))
+print(s.sumOfNumbers(l=5, r=5, k=10))
