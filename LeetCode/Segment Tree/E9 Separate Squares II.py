@@ -71,6 +71,7 @@ class Solution:
         return height + (total_area - area * 2) / (width * 2.0)
 
 
+# LeetCode 3454
 s = Solution()
 print(s.separateSquares(squares=[[0, 0, 1], [2, 2, 1]]))
 print(s.separateSquares(squares=[[0, 0, 2], [1, 1, 1]]))
