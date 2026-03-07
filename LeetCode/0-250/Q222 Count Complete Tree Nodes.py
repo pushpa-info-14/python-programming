@@ -31,7 +31,6 @@ class Solution:
         return dfs(root)
 
 
-# LeetCode 222
 s = Solution()
 tree = TreeNode.build([1, 2, 3, 4, 5, 6])
 print(s.countNodes(tree))
