@@ -46,7 +46,6 @@ class Solution:
         return res
 
 
-# LeetCode 863
 s = Solution()
 tree = TreeNode.build([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4])
 print(s.distanceK(tree, tree.left, 2))
