@@ -1,3 +1,4 @@
+from functools import cache
 from typing import List
 
 
@@ -5,20 +6,22 @@ class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
         n = len(nums)
         nums_set = set(nums)
-        res = [""]
+        res = ""
 
-        def backtrack(cur):
+        @cache
+        def dfs(cur):
+            nonlocal res
             if len(cur) == n:
                 if cur in nums_set:
                     return False
-                res[0] = cur
+                res = cur
                 return True
-            if backtrack(cur + "0") or backtrack(cur + "1"):
+            if dfs(cur + "0") or dfs(cur + "1"):
                 return True
             return False
 
-        backtrack("")
-        return res[0]
+        dfs("")
+        return res
 
 
 s = Solution()
