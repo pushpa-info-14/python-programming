@@ -4,7 +4,7 @@ class Solution:
         happy_count = [0]
         res = [""]
 
-        def backtracking(s):
+        def dfs(s):
             if happy_count[0] == k:
                 return
             if len(s) == n:
@@ -13,11 +13,11 @@ class Solution:
                 return
             for c in chars:
                 if s[-1] != c:
-                    backtracking(s + c)
+                    dfs(s + c)
 
-        backtracking("a")
-        backtracking("b")
-        backtracking("c")
+        dfs("a")
+        dfs("b")
+        dfs("c")
         return res[0] if happy_count[0] == k else ""
 
     def getHappyString2(self, n: int, k: int) -> str:
