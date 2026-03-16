@@ -1,25 +1,26 @@
-class Fancy:
-    mod = 10 ** 9 + 7
+mod = 10 ** 9 + 7
 
+
+class Fancy:
     def __init__(self):
         self.seq = []
         self.add = 0
         self.mul = 1
 
     def append(self, val: int) -> None:
-        self.seq.append((val - self.add) * pow(self.mul, -1, self.mod) % self.mod)
+        self.seq.append((val - self.add) * pow(self.mul, -1, mod) % mod)
 
     def addAll(self, inc: int) -> None:
         self.add += inc
 
     def multAll(self, m: int) -> None:
-        self.mul = (self.mul * m) % self.mod
-        self.add = (self.add * m) % self.mod
+        self.mul = (self.mul * m) % mod
+        self.add = (self.add * m) % mod
 
     def getIndex(self, idx: int) -> int:
         if idx >= len(self.seq):
             return -1
-        return (self.seq[idx] * self.mul + self.add) % self.mod
+        return (self.seq[idx] * self.mul + self.add) % mod
 
 
 """
