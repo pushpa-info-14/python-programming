@@ -27,5 +27,5 @@ class Solution:
 
 s = Solution()
 tree = TreeNode.build([4, 2, 7, 1, 3])
-s.searchBST(tree, 2).preorder_traversal()
-s.searchBST2(tree, 2).preorder_traversal()
+print(s.searchBST(tree, 2).val)
+print(s.searchBST2(tree, 2).val)
