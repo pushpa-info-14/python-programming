@@ -12,6 +12,8 @@ class Solution:
                 prefix[r][c] = grid[r - 1][c - 1] + prefix[r - 1][c] + prefix[r][c - 1] - prefix[r - 1][c - 1]
                 if prefix[r][c] <= k:
                     res += 1
+                else:
+                    break
         return res
 
 
