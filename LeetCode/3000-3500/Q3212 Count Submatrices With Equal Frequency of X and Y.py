@@ -5,15 +5,16 @@ class Solution:
     def numberOfSubmatrices(self, grid: List[List[str]]) -> int:
         m = len(grid)
         n = len(grid[0])
-        prefix = [[[0] * 2 for _ in range(n + 1)] for _ in range(m + 1)]
+        x = [[0] * (n + 1) for _ in range(m + 1)]
+        y = [[0] * (n + 1) for _ in range(m + 1)]
         res = 0
         for r in range(1, m + 1):
             for c in range(1, n + 1):
-                x = 1 if grid[r - 1][c - 1] == "X" else 0
-                y = 1 if grid[r - 1][c - 1] == "Y" else 0
-                prefix[r][c][0] = x + prefix[r - 1][c][0] + prefix[r][c - 1][0] - prefix[r - 1][c - 1][0]
-                prefix[r][c][1] = y + prefix[r - 1][c][1] + prefix[r][c - 1][1] - prefix[r - 1][c - 1][1]
-                if prefix[r][c][0] == prefix[r][c][1] and prefix[r][c][0] > 0:
+                val_x = 1 if grid[r - 1][c - 1] == "X" else 0
+                val_y = 1 if grid[r - 1][c - 1] == "Y" else 0
+                x[r][c] = val_x + x[r - 1][c] + x[r][c - 1] - x[r - 1][c - 1]
+                y[r][c] = val_y + y[r - 1][c] + y[r][c - 1] - y[r - 1][c - 1]
+                if x[r][c] == y[r][c] and x[r][c] > 0:
                     res += 1
         return res
 
