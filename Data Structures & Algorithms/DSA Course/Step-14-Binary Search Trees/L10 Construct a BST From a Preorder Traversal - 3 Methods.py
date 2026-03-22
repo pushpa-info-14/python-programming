@@ -22,7 +22,26 @@ class Solution:
 
         return dfs(preorder)
 
+    def bstFromPreorder2(self, preorder: List[int]) -> Optional[TreeNode]:
+        n = len(preorder)
+        i = 0
+
+        def dfs(bound):
+            nonlocal i
+            if i == n or preorder[i] > bound:
+                return None
+            node = TreeNode(preorder[i])
+            i += 1
+            node.left = dfs(node.val)
+            node.right = dfs(bound)
+            return node
+
+        return dfs(10 ** 10)
+
 
 s = Solution()
 s.bstFromPreorder(preorder=[8, 5, 1, 7, 10, 12]).inorder_traversal()
 s.bstFromPreorder(preorder=[1, 3]).inorder_traversal()
+print("-----------")
+s.bstFromPreorder2(preorder=[8, 5, 1, 7, 10, 12]).inorder_traversal()
+s.bstFromPreorder2(preorder=[1, 3]).inorder_traversal()
