@@ -36,6 +36,27 @@ class Solution:
             for s in accumulate(sums)
         )
 
+    def canPartitionGrid3(self, grid: List[List[int]]) -> bool:
+        m = len(grid)
+        n = len(grid[0])
+        total = 0
+        for r in range(m):
+            for c in range(n):
+                total += grid[r][c]
+        cur = 0
+        for r in range(m):
+            for c in range(n):
+                cur += grid[r][c]
+            if total / 2 == cur:
+                return True
+        cur = 0
+        for c in range(n):
+            for r in range(m):
+                cur += grid[r][c]
+            if total / 2 == cur:
+                return True
+        return False
+
 
 s = Solution()
 print(s.canPartitionGrid(grid=[[1, 4], [2, 3]]))
@@ -43,3 +64,6 @@ print(s.canPartitionGrid(grid=[[1, 3], [2, 4]]))
 print("----------")
 print(s.canPartitionGrid2(grid=[[1, 4], [2, 3]]))
 print(s.canPartitionGrid2(grid=[[1, 3], [2, 4]]))
+print("----------")
+print(s.canPartitionGrid3(grid=[[1, 4], [2, 3]]))
+print(s.canPartitionGrid3(grid=[[1, 3], [2, 4]]))
