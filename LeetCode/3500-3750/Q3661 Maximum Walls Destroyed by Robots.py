@@ -21,6 +21,8 @@ class Solution:
         dp = [[0] * 2 for _ in range(n + 1)]
         dp[0][1] = count(arr[0][0] - arr[0][1], arr[0][0] - 1)
 
+        # dp[i][0] = max walls after i gaps, with robot i available
+        # dp[i][1] = max walls after i gaps, with robot i used
         for i in range(n):
             l, ld = arr[i]
             r, rd = arr[i + 1]
