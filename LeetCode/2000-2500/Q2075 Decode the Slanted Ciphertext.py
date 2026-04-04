@@ -1,23 +1,23 @@
 class Solution:
     def decodeCiphertext(self, encodedText: str, rows: int) -> str:
-        n = len(encodedText) // rows
-        grid = [[""] * n for _ in range(rows)]
+        cols = len(encodedText) // rows
+        grid = [[""] * cols for _ in range(rows)]
         for i in range(len(encodedText)):
-            grid[i // n][i % n] = encodedText[i]
+            grid[i // cols][i % cols] = encodedText[i]
         res = ""
-        for c in range(n):
+        for c in range(cols):
             for r in range(rows):
-                if r + c < n:
+                if r + c < cols:
                     res += grid[r][r + c]
         return res.rstrip()
 
     def decodeCiphertext2(self, encodedText: str, rows: int) -> str:
-        n = len(encodedText) // rows
+        cols = len(encodedText) // rows
         res = ""
-        for c in range(n):
+        for c in range(cols):
             for r in range(rows):
-                if r + c < n:
-                    res += encodedText[r * n + r + c]
+                if r + c < cols:
+                    res += encodedText[r * cols + r + c]
         return res.rstrip()
 
 
