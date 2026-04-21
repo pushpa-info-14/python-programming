@@ -5,7 +5,7 @@ class DisjointSet:
     def __init__(self):
         self._parent = {}
 
-    def findParent(self, x):
+    def find(self, x):
         if x not in self._parent:
             self._parent[x] = x
         while x != self._parent[x]:
@@ -14,10 +14,10 @@ class DisjointSet:
         return x
 
     def union(self, x, y):
-        self._parent[self.findParent(x)] = self._parent[self.findParent(y)]
+        self._parent[self.find(x)] = self._parent[self.find(y)]
 
     def groups(self):
         groups = defaultdict(set)
         for x in self._parent:
-            groups[self.findParent(x)].add(x)
+            groups[self.find(x)].add(x)
         return groups.values()

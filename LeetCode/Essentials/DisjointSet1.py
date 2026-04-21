@@ -3,14 +3,14 @@ class DisjointSet:
         self.size = [1] * (n + 1)
         self.parent = list(range(n + 1))
 
-    def findParent(self, x):
+    def find(self, x):
         if x != self.parent[x]:
-            self.parent[x] = self.findParent(self.parent[x])
+            self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
 
     def union(self, x, y):
-        x = self.findParent(x)
-        y = self.findParent(y)
+        x = self.find(x)
+        y = self.find(y)
         if x != y:
             if self.size[x] < self.size[y]:
                 self.parent[x] = y
