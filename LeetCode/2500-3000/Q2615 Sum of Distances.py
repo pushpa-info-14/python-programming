@@ -8,7 +8,7 @@ class Solution:
         mp = defaultdict(list)
         for i in range(n):
             mp[nums[i]].append(i)
-        for num in set(nums):
+        for num in mp.keys():
             size = len(mp[num])
             cur = mp[num]
             pfx_sum = [0] * size
