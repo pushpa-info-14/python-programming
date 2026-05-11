@@ -15,7 +15,13 @@ class Solution:
                 res += cur[::-1]
         return res
 
+    def separateDigits2(self, nums: List[int]) -> List[int]:
+        return [int(y) for x in nums for y in str(x)]
+
 
 s = Solution()
 print(s.separateDigits(nums=[13, 25, 83, 77]))
 print(s.separateDigits(nums=[7, 1, 3, 9]))
+print("--------------------")
+print(s.separateDigits2(nums=[13, 25, 83, 77]))
+print(s.separateDigits2(nums=[7, 1, 3, 9]))
