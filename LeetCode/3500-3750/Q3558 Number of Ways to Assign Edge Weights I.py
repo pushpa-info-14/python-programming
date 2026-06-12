@@ -9,18 +9,15 @@ class Solution:
         for u, v in edges:
             adj[u].append(v)
             adj[v].append(u)
-        q = deque([1])
-        level = 0
-        seen = set()
+        q = deque([(1, 0, -1)])  # (node, level, parent)
+        max_level = 0
         while q:
-            for _ in range(len(q)):
-                node = q.popleft()
-                seen.add(node)
-                for nei in adj[node]:
-                    if nei not in seen:
-                        q.append(nei)
-            level += 1
-        return pow(2, level - 2, mod)
+            node, level, parent = q.popleft()
+            max_level = max(max_level, level)
+            for nei in adj[node]:
+                if nei != parent:
+                    q.append((nei, level + 1, node))
+        return pow(2, max_level - 1, mod)
 
 
 s = Solution()
