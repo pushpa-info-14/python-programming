@@ -1,7 +1,7 @@
 import heapq
 from typing import List
 
-from Leetcode.Common.ListNode import ListNode
+from Common.ListNode import ListNode
 
 
 def merge(head1: ListNode, head2: ListNode):

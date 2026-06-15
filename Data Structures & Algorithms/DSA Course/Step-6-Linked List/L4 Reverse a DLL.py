@@ -1,6 +1,6 @@
 from collections import deque
 
-from Leetcode.Common.DoublyListNode import DoublyListNode
+from Common.DoublyListNode import DoublyListNode
 
 
 def reverse1(head: DoublyListNode):

@@ -1,4 +1,4 @@
-from Leetcode.Common.ListNode import ListNode
+from Common.ListNode import ListNode
 
 
 def find_intersection(head1: ListNode, head2: ListNode):

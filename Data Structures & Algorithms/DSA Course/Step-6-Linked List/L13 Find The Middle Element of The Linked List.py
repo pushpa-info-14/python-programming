@@ -1,4 +1,4 @@
-from Leetcode.Common.ListNode import ListNode
+from Common.ListNode import ListNode
 
 
 def find_mid(head: ListNode) -> ListNode:

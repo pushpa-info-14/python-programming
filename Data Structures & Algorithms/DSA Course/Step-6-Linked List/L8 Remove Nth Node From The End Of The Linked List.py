@@ -1,4 +1,4 @@
-from Leetcode.Common.ListNode import ListNode
+from Common.ListNode import ListNode
 
 
 def removeNthNode(head: ListNode, n: int):

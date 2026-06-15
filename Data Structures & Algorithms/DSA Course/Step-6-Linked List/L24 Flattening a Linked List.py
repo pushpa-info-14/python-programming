@@ -1,4 +1,4 @@
-from Leetcode.Common.ListNode2 import ListNode2
+from Common.ListNode2 import ListNode2
 
 
 def merge(head1: ListNode2, head2: ListNode2):

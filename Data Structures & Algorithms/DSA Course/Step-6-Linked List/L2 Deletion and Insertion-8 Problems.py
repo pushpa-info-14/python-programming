@@ -1,6 +1,6 @@
 from typing import Optional
 
-from Leetcode.Common.ListNode import ListNode
+from Common.ListNode import ListNode
 
 
 def deleteHead(head: ListNode):

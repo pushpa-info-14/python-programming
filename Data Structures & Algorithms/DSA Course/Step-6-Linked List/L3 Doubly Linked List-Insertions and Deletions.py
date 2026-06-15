@@ -1,6 +1,6 @@
 from typing import Optional
 
-from Leetcode.Common.DoublyListNode import DoublyListNode
+from Common.DoublyListNode import DoublyListNode
 
 
 def createDoublyLinkedList(nums):
