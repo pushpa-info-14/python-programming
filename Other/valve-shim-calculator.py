@@ -1,8 +1,10 @@
 import math
 
-def to_decimal(val, precision = 2):
+
+def to_decimal(val, precision=2):
     fact = 1000 * 10 ** precision
     return math.floor(val * fact) / fact
+
 
 class ValveShimCalculator:
     def __init__(self, readings, c_spec):
@@ -42,8 +44,11 @@ exhaust_readings = [
     [0.48, 2.52],
     [0.48, 2.47]
 ]
-intake = ValveShimCalculator(intake_readings, 0.25)  #      0.32 - 0.40 HOT, 0.25 - 0.33 COLD
-exhaust = ValveShimCalculator(exhaust_readings, 0.32)  #    0.37 - 0.45 HOT, 0.32 - 0.40 COLD
+
+print([x[0] for x in intake_readings])
+print([x[0] for x in exhaust_readings])
+intake = ValveShimCalculator(intake_readings, 0.25)  # 0.32 - 0.40 HOT, 0.25 - 0.33 COLD
+exhaust = ValveShimCalculator(exhaust_readings, 0.32)  # 0.37 - 0.45 HOT, 0.32 - 0.40 COLD
 res1 = intake.cal(True)
 res2 = exhaust.cal(True)
 res = res1 + res2
