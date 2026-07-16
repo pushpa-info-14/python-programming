@@ -59,10 +59,11 @@ print(ans)
 
 
 def gcd(a, b):
-    while a and b:
+    while b != 0:
         a, b = b, a % b
     return a
 
 print(gcd(40, 20))
 print(gcd(20, 40))
 print(gcd(2, 8))
+print(gcd(0, 8))
