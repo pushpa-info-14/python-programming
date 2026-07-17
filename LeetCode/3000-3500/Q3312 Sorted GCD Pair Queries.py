@@ -4,6 +4,14 @@ from typing import List
 
 class Solution:
     def gcdValues(self, nums: List[int], queries: List[int]) -> List[int]:
+        """
+        1. Get frequencies
+        2. count[i] = Number of elements divisible by i
+        3. count[i] = Pairs with both numbers divisible by i
+        4. count[i] = Pairs with GCD of i
+        5. count[i] = Pairs with GCD of i or less
+        6. Answer queries with binary search
+        """
         maxi = max(nums)
         count = [0] * (maxi + 1)
         for num in nums:
