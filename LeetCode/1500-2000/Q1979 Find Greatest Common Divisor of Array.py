@@ -2,7 +2,7 @@ from typing import List
 
 
 def gcd(a, b):
-    while a and b:
+    while b:
         a, b = b, a % b
     return a
 
