@@ -3,11 +3,9 @@ class Solution:
         n = len(s)
         mid = n // 2
         m = ''
+        l = list(s[:mid])
         if n & 1:
-            l = list(s[:mid])
             m = s[mid]
-        else:
-            l = list(s[:mid])
         l.sort()
         return ''.join(l) + m + ''.join(l[::-1])
 
