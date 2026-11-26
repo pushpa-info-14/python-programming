@@ -1,5 +1,4 @@
 class ProductOfNumbers:
-
     def __init__(self):
         self.prefix_products = []
 
@@ -15,7 +14,6 @@ class ProductOfNumbers:
             self.prefix_products.append(prefix)
 
     def getProduct(self, k: int) -> int:
-        print(self.prefix_products)
         n = len(self.prefix_products)
         if n < k:
             return 0
